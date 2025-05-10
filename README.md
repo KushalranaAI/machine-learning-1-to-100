@@ -36,7 +36,6 @@ Scripts & tools to collect raw data from various sources:
 
 * **Web\_scraping/**: Scrapers using `BeautifulSoup`, `Selenium`, `requests`.
 * **APIs/**: Sample code to fetch data from REST APIs (handling auth, pagination).
-* **Datasets/**: Script to download public datasets + a `sample_data/` folder for demo files.
 
 ✔️ Helps users learn how to ingest data programmatically.
 
