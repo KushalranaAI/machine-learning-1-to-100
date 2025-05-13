@@ -1,15 +1,14 @@
-#!/usr/bin/env python3
 """
-Advanced Selenium Web Scraper → JSON Export
+Advance selenium web scraper -> Json scraper
 
-Features:
- - Headless Chrome with custom UA & optional proxy
- - Explicit waits for JS-rendered content
- - Auto-scroll to load lazy elements
- - Screenshot capture on error
- - Pagination support (click "Next" links)
- - Configurable extraction via CSS selectors
- - Robust logging & retry logic
+features:
+    - Headless Chrome with custom UA & optional proxy
+    - Explicit waits for JS-rendered content
+    - Auto-scroll to load lazy elements
+    - Screenshot Capture on error
+    - pagination support (click "next" link)
+    - Configurable extraction via CSS selectors
+    - Robust logging & retry loggic
 """
 
 import json
@@ -31,12 +30,11 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 
-# ------------------------ CONFIGURATION ------------------------
-
-# 1) Pages to start from (can be listing pages with pagination)
-START_URLS = [
+# -------------------------------------CONFIGURATIONS------------------------------------------------
+# 1) Pages to Start from (can be listing pages with pagination)
+START_URLs = [
     "https://en.wikipedia.org/wiki/Albert_Einstein",
-    "https://www.wikihow.com/Main-Page",
+    "https://www.myagedcare.gov.au/",
 ]
 
 # 2) Extraction rules
@@ -50,10 +48,10 @@ FIELDS = {
     "links": {"selector": "a", "attr": "href", "multiple": True},
     "images": {"selector": "img", "attr": "src", "multiple": True},
     "paragraphs": {"selector": "p", "attr": "text", "multiple": True},
-    # add more field if you want
+    ## add the more fields if you want
 }
 
-# 3) Pagination ("Next" button) CSS selector, or None
+# 3) Pagination ("NEXT" button) CSS selector, or None
 PAGINATION_NEXT_SELECTOR = "a.next"
 
 # 4) Output path
@@ -65,9 +63,10 @@ USER_AGENT = (
     "AppleWebKit/537.36 (KHTML, like Gecko) "
     "Chrome/114.0.0.0 Safari/537.36"
 )
+
 PROXY = None  # e.g. "123.45.67.89:3128" or None
 
-# ------------------------ LOGGING SETUP ------------------------
+# -------------------------------------------LOGGING SETUP ------------------------------------------------
 
 logging.basicConfig(
     level=logging.INFO,
@@ -75,7 +74,8 @@ logging.basicConfig(
     handlers=[logging.StreamHandler()],
 )
 
-# ------------------------ SCRAPER CLASS ------------------------
+
+# -----------------------------------------SCRAPER CLASS---------------------------------------------------
 
 
 class SeleniumScraper:
@@ -84,49 +84,54 @@ class SeleniumScraper:
         chrome_opts.headless = True
         chrome_opts.add_argument(f"--user-agent={USER_AGENT}")
         chrome_opts.add_argument("--disable-gpu")
-        chrome_opts.add_argument("--window-size=1920,1080")
+        chrome_opts.add_argument("--window-size=1920, 1080")
         chrome_opts.add_argument("--no-sandbox")
         # chrome_opts.add_argument("--incognito")
+
         if PROXY:
             chrome_opts.add_argument(f"--proxy-server={PROXY}")
 
         # initialize driver
-        # Use Service to point to the driver binary
+        # Use service to point to the driver binary
         service = Service(ChromeDriverManager().install())
+
         # faster page load
         self.driver = webdriver.Chrome(service=service, options=chrome_opts)
         self.driver.set_page_load_timeout(30)
 
     def fetch(self, url: str):
-        logging.info(f"→ Loading: {url}")
+        logging.info(f"Loading url: {url}")
+
         try:
             self.driver.get(url)
         except WebDriverException as e:
-            logging.error(f"Page load error: {e}. Retrying once…")
+            logging.error(f"Page load error: {e}, Retrying Once.....")
             time.sleep(5)
             self.driver.get(url)
 
     def wait_for(self, selector: str, timeout=15):
-        """Wait until at least one element matches selector."""
+        """Wait until at least one element matches selector"""
         return WebDriverWait(self.driver, timeout).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, selector))
         )
 
     def auto_scroll(self, pause=1.0, max_scrolls=10):
-        """Scroll to bottom to trigger lazy-loads."""
-        last_height = self.driver.execute_script("return document.body.scrollHeight")
+        """Scroll to bottom to trigger lazy laods"""
+        last_heights = self.driver.execute_script("return document.body.scrollHeight")
+
         for _ in range(max_scrolls):
             self.driver.execute_script(
                 "window.scrollTo(0, document.body.scrollHeight);"
             )
             time.sleep(pause)
             new_height = self.driver.execute_script("return document.body.scrollHeight")
-            if new_height == last_height:
+
+            if new_height == last_heights:
                 break
-            last_height = new_height
+            last_heights = new_height
 
     def extract(self, base_url: str) -> dict:
-        """Extract all configured fields from the current page."""
+        """Extract all configuration fields from the current page."""
         record = {}
         for name, cfg in FIELDS.items():
             els = self.driver.find_elements(By.CSS_SELECTOR, cfg["selector"])
@@ -136,7 +141,7 @@ class SeleniumScraper:
                     vals.append(el.text.strip())
                 else:
                     raw = el.get_attribute(cfg["attr"])
-                    # make relative URLs absolute
+                    # make releative URLs absolute
                     if cfg["attr"] in ("href", "src") and raw:
                         raw = urljoin(base_url, raw)
                     vals.append(raw)
@@ -144,7 +149,8 @@ class SeleniumScraper:
                 record[name] = [] if cfg["multiple"] else None
             else:
                 record[name] = vals if cfg["multiple"] else vals[0]
-        # always include URL
+
+        # always include url
         record["url"] = self.driver.current_url
         return record
 
@@ -152,13 +158,13 @@ class SeleniumScraper:
         path = os.path.join("data", name)
         os.makedirs(os.path.dirname(path), exist_ok=True)
         self.driver.save_screenshot(path)
-        logging.info(f"↪ Screenshot saved: {path}")
+        logging.info(f"screenshot saved: {path}")
 
     def close(self):
         self.driver.quit()
 
 
-# ------------------------ MAIN WORKFLOW ------------------------
+# ------------------------------------------------MAIN WORKFLOW--------------------------------------------------
 
 
 def main():
@@ -167,24 +173,24 @@ def main():
     all_data = []
 
     try:
-        for start_url in START_URLS:
+        for start_url in START_URLs:
             next_url = start_url
             while next_url:
                 try:
                     scraper.fetch(next_url)
-                    # wait for one of your key selectors to ensure JS ran
+                    # wait for one ofyou key selector to ensure JS ran
                     first_selector = next(iter(FIELDS.values()))["selector"]
                     scraper.wait_for(first_selector)
 
-                    # optional: scroll to load all lazy content
+                    # optinal: scroll to load all lazy content
                     scraper.auto_scroll()
 
                     # extract data
                     data = scraper.extract(next_url)
                     all_data.append(data)
-                    logging.info(f"✔ Extracted data from {data['url']}")
+                    logging.info(f"Extracted data from : {data['url']}")
 
-                    # handle pagination
+                    # check for pagination
                     if PAGINATION_NEXT_SELECTOR:
                         try:
                             nxt = scraper.driver.find_element(
@@ -197,17 +203,16 @@ def main():
                         next_url = None
 
                 except Exception as e:
-                    logging.error(f"✖ Failed on {next_url}: {e}")
-                    scraper.capture_screenshot("scrape_error.png")
-                    break  # stop pagination loop for this start_url
-
+                    logging.error(f" failed on  {next_url}: {e}")
+                    scraper.capture_screenshot("scraper_error.png")
+                    break
     finally:
         scraper.close()
 
-    # save JSON
+    # dave JSON
     with open(OUTPUT_JSON_PATH, "w", encoding="utf-8") as f:
         json.dump(all_data, f, ensure_ascii=False, indent=2)
-    logging.info(f"■ Saved {len(all_data)} records to {OUTPUT_JSON_PATH}")
+    logging.info(f"Saved {len(all_data)} records to {OUTPUT_JSON_PATH}")
 
 
 if __name__ == "__main__":
