@@ -1,0 +1,546 @@
+{
+    "id": 11848598,
+    "urn": "ACoAAAC0y5YB1d3L356Yaf3g3Tb5PR4O7scFb5o",
+    "username": "adamselipsky",
+    "firstName": "Adam",
+    "lastName": "Selipsky",
+    "isTopVoice": true,
+    "isCreator": true,
+    "isPremium": true,
+    "profilePicture": "https://media.licdn.com/dms/image/v2/D5603AQGZJ-njdtv_-g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1719507065641?e=1753315200&v=beta&t=1X-LKQa-sZfgsHq8hWoL28oOo5zK_vjg3YayVkuDhRE",
+    "profilePictures": [
+        {
+            "url": "https://media.licdn.com/dms/image/v2/D5603AQGZJ-njdtv_-g/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1719507065628?e=1753315200&v=beta&t=GCYDPJGnPwIvFbqBFva10-opLGUhFu-hXirdsgbvxrY",
+            "width": 100,
+            "height": 100
+        },
+        {
+            "url": "https://media.licdn.com/dms/image/v2/D5603AQGZJ-njdtv_-g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1719507065628?e=1753315200&v=beta&t=Pkp9_qxlpXdt0iTZScOHTGvB9kd5PqYX6dvTbDM8EFc",
+            "width": 200,
+            "height": 200
+        },
+        {
+            "url": "https://media.licdn.com/dms/image/v2/D5603AQGZJ-njdtv_-g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1719507065628?e=1753315200&v=beta&t=U3UB6ejv1EDbB3V33qZaOiyVEtXndS9R3nynOk5MD4Q",
+            "width": 400,
+            "height": 400
+        },
+        {
+            "url": "https://media.licdn.com/dms/image/v2/D5603AQGZJ-njdtv_-g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1719507065641?e=1753315200&v=beta&t=1X-LKQa-sZfgsHq8hWoL28oOo5zK_vjg3YayVkuDhRE",
+            "width": 471,
+            "height": 471
+        }
+    ],
+    "backgroundImage": [
+        {
+            "width": 266,
+            "height": 200,
+            "url": "https://media.licdn.com/dms/image/v2/D5616AQEetlwRti-pwA/profile-displaybackgroundimage-shrink_200_800/profile-displaybackgroundimage-shrink_200_800/0/1719506391020?e=1753315200&v=beta&t=UY70gjnTGBk71iizzXp8ySh6in6yWEqSiO6RuBuiMdY"
+        },
+        {
+            "width": 466,
+            "height": 350,
+            "url": "https://media.licdn.com/dms/image/v2/D5616AQEetlwRti-pwA/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1719506391020?e=1753315200&v=beta&t=tsB5BOT3VLfmeB4yiYDk2AG9NbdDb3sTbm8TM6gwXVE"
+        }
+    ],
+    "summary": "Adam Selipsky is the CEO of Amazon Web Services (AWS), the world’s most comprehensive and broadly adopted cloud platform. Having previously led AWS marketing, sales, and support for 11 years, from 2005-2016, Selipsky helped launch and grow AWS from a start-up into a multi-billion dollar business. Prior to rejoining AWS in 2021, Selipsky was most recently President and CEO of Tableau Software. He led Tableau through its acquisition by Salesforce, in what was the third largest software industry acquisition at the time. ",
+    "headline": "Former CEO at Amazon Web Services (AWS). Former President and CEO at Tableau. ",
+    "geo": {
+        "country": "United States",
+        "city": "Greater Seattle Area",
+        "full": "Greater Seattle Area",
+        "countryCode": "us"
+    },
+    "educations": [
+        {
+            "start": {
+                "year": 0,
+                "month": 0,
+                "day": 0
+            },
+            "end": {
+                "year": 0,
+                "month": 0,
+                "day": 0
+            },
+            "fieldOfStudy": "",
+            "degree": "MBA",
+            "grade": "",
+            "schoolName": "Harvard Business School",
+            "description": "",
+            "activities": "",
+            "url": "https://www.linkedin.com/school/harvard-business-school/",
+            "schoolId": "4867",
+            "logo": [
+                {
+                    "url": "https://media.licdn.com/dms/image/v2/C4D0BAQF_DkXTlZVo1w/company-logo_200_200/company-logo_200_200/0/1639781479259/harvard_business_school_logo?e=1753315200&v=beta&t=2DZRLab5zP_tWHEzREF333QjReNQcR24MCjjLOuL96Q",
+                    "width": 200,
+                    "height": 200
+                },
+                {
+                    "url": "https://media.licdn.com/dms/image/v2/C4D0BAQF_DkXTlZVo1w/company-logo_100_100/company-logo_100_100/0/1639781479259/harvard_business_school_logo?e=1753315200&v=beta&t=Efurn6chZ8xf7A1gZPELETSVCA5BDgquQFMZkmWqIe4",
+                    "width": 100,
+                    "height": 100
+                },
+                {
+                    "url": "https://media.licdn.com/dms/image/v2/C4D0BAQF_DkXTlZVo1w/company-logo_400_400/company-logo_400_400/0/1639781479259/harvard_business_school_logo?e=1753315200&v=beta&t=XSxtleH9TovcziH5pcHBUA0BjkIUPl7DYYPRJDh2488",
+                    "width": 400,
+                    "height": 400
+                }
+            ]
+        },
+        {
+            "start": {
+                "year": 0,
+                "month": 0,
+                "day": 0
+            },
+            "end": {
+                "year": 0,
+                "month": 0,
+                "day": 0
+            },
+            "fieldOfStudy": "Government",
+            "degree": "A.B.",
+            "grade": "",
+            "schoolName": "Harvard University",
+            "description": "",
+            "activities": "",
+            "url": "https://www.linkedin.com/school/harvard-university/",
+            "schoolId": "1646",
+            "logo": [
+                {
+                    "url": "https://media.licdn.com/dms/image/v2/C4E0BAQF5t62bcL0e9g/company-logo_200_200/company-logo_200_200/0/1631318058235?e=1753315200&v=beta&t=uYRoJjlJLfJWmH7lyVB3qun_vBi0pN6zWfpe6hNxw48",
+                    "width": 200,
+                    "height": 200
+                },
+                {
+                    "url": "https://media.licdn.com/dms/image/v2/C4E0BAQF5t62bcL0e9g/company-logo_100_100/company-logo_100_100/0/1631318058235?e=1753315200&v=beta&t=KfjVQVZi5DSzm5vjM6f8nAN144ZbOLmdZsOyrTaJNqk",
+                    "width": 100,
+                    "height": 100
+                },
+                {
+                    "url": "https://media.licdn.com/dms/image/v2/C4E0BAQF5t62bcL0e9g/company-logo_400_400/company-logo_400_400/0/1631318058235?e=1753315200&v=beta&t=s4mqs63-df4MFfGFzjIBtMRR4Muzrpz_q18Y0g_q064",
+                    "width": 400,
+                    "height": 400
+                }
+            ]
+        }
+    ],
+    "position": [
+        {
+            "companyId": 2382910,
+            "companyName": "Amazon Web Services (AWS)",
+            "companyUsername": "amazon-web-services",
+            "companyURL": "https://www.linkedin.com/company/amazon-web-services/",
+            "companyLogo": "https://media.licdn.com/dms/image/v2/D4E0BAQE0fp2sCqnVLg/company-logo_400_400/company-logo_400_400/0/1738855736997/amazon_web_services_logo?e=1753315200&v=beta&t=7duDDpQor5pLLqIbUhgbmTB6rW0Xg8TSTklrNUQkgHs",
+            "companyIndustry": "Information Technology & Services",
+            "companyStaffCountRange": "10001+",
+            "title": "CEO",
+            "multiLocaleTitle": {
+                "en_US": "CEO"
+            },
+            "multiLocaleCompanyName": {
+                "en_US": "Amazon Web Services (AWS)"
+            },
+            "location": "",
+            "locationType": "",
+            "description": "Led AWS from pre-revenue to $100B revenue run-rate with 37% operating margin. AWS is the world’s most comprehensive and broadly adopted cloud offering.",
+            "employmentType": "",
+            "start": {
+                "year": 2021,
+                "month": 5,
+                "day": 0
+            },
+            "end": {
+                "year": 2024,
+                "month": 6,
+                "day": 0
+            }
+        },
+        {
+            "companyId": 206993,
+            "companyName": "Tableau Software",
+            "companyUsername": "tableau-software",
+            "companyURL": "https://www.linkedin.com/company/tableau-software/",
+            "companyLogo": "https://media.licdn.com/dms/image/v2/C560BAQGbNutqXFCq8g/company-logo_400_400/company-logo_400_400/0/1630636446931/tableau_software_logo?e=1753315200&v=beta&t=4G5M3wnx1AOx_ITDoWGmco2Pqb8w-NREKBLW4zlq_zk",
+            "companyIndustry": "Computer Software",
+            "companyStaffCountRange": "1001 - 5000",
+            "title": "CEO",
+            "multiLocaleTitle": {
+                "en_US": "CEO"
+            },
+            "multiLocaleCompanyName": {
+                "en_US": "Tableau Software"
+            },
+            "location": "Seattle, WA",
+            "locationType": "",
+            "description": "Transformed Tableau to subscription model from perpetual licensing. Led company through its acquisition by Salesforce, in what was the third largest software industry acquisition at the time. Tableau helps people see and understand data. People use Tableau’s intuitive business analytics software to fuel exploration, ask questions, and share insights across their organizations.",
+            "employmentType": "",
+            "start": {
+                "year": 2016,
+                "month": 0,
+                "day": 0
+            },
+            "end": {
+                "year": 2021,
+                "month": 5,
+                "day": 0
+            }
+        },
+        {
+            "companyId": 2382910,
+            "companyName": "Amazon Web Services (AWS)",
+            "companyUsername": "amazon-web-services",
+            "companyURL": "https://www.linkedin.com/company/amazon-web-services/",
+            "companyLogo": "https://media.licdn.com/dms/image/v2/D4E0BAQE0fp2sCqnVLg/company-logo_400_400/company-logo_400_400/0/1738855736997/amazon_web_services_logo?e=1753315200&v=beta&t=7duDDpQor5pLLqIbUhgbmTB6rW0Xg8TSTklrNUQkgHs",
+            "companyIndustry": "Information Technology & Services",
+            "companyStaffCountRange": "10001+",
+            "title": "Vice President of Marketing, Sales, & Support - COO role",
+            "multiLocaleTitle": {
+                "en_US": "Vice President of Marketing, Sales, & Support - COO role"
+            },
+            "multiLocaleCompanyName": {
+                "en_US": "Amazon Web Services (AWS)"
+            },
+            "location": "Seattle, WA",
+            "locationType": "",
+            "description": "Worldwide responsibility for AWS marketing, sales, business development, partner management, technical support and customer service, and product marketing/mgmt. Member of Amazon's 18-person senior operating committee (S-Team). Took AWS from pre-revenue to $13B+ revenue business still growing 50%/yr while growing team size from fewer than 10 to thousands.",
+            "employmentType": "",
+            "start": {
+                "year": 2005,
+                "month": 0,
+                "day": 0
+            },
+            "end": {
+                "year": 2016,
+                "month": 0,
+                "day": 0
+            }
+        },
+        {
+            "companyId": 3646,
+            "companyName": "RealNetworks",
+            "companyUsername": "realnetworks",
+            "companyURL": "https://www.linkedin.com/company/realnetworks/",
+            "companyLogo": "https://media.licdn.com/dms/image/v2/C560BAQEK239n0aSjRw/company-logo_400_400/company-logo_400_400/0/1630584651337/realnetworks_logo?e=1753315200&v=beta&t=c5DogD-fJhQvkIY7e7z0rBOSl29p1yQWYg1mb6RGi0k",
+            "companyIndustry": "Computer Software",
+            "companyStaffCountRange": "201 - 500",
+            "title": "Vice President (general management, marketing)",
+            "multiLocaleTitle": {
+                "en_US": "Vice President (general management, marketing)"
+            },
+            "multiLocaleCompanyName": {
+                "en_US": "RealNetworks"
+            },
+            "location": "Seattle, WA",
+            "locationType": "",
+            "description": "Vice President for Video Subscription business, RealPlayer, and Customer Support; responsible for over one-third of company revenue. Previously served as Vice President of Consumer Marketing, including running real.com, ranking in top ten most trafficked websites. Also served as General Manager for Media Systems Marketing, responsible for all marketing activities to enterprises, developers, and IT organizations.",
+            "employmentType": "",
+            "start": {
+                "year": 1999,
+                "month": 0,
+                "day": 0
+            },
+            "end": {
+                "year": 2005,
+                "month": 0,
+                "day": 0
+            }
+        },
+        {
+            "companyId": 2453,
+            "companyName": "Mercer Management Consulting",
+            "companyUsername": "mercer-management-consulting",
+            "companyURL": "https://www.linkedin.com/company/mercer-management-consulting/",
+            "companyLogo": "",
+            "companyIndustry": "Management Consulting",
+            "companyStaffCountRange": "1001 - 5000",
+            "title": "Principal",
+            "multiLocaleTitle": {
+                "en_US": "Principal"
+            },
+            "multiLocaleCompanyName": {
+                "en_US": "Mercer Management Consulting"
+            },
+            "location": "Boston, MA",
+            "locationType": "",
+            "description": "Partner in strategy consulting firm, focused on computing and communications industries. Led client engagements including marketing strategy, cost benchmarking, strategic growth initiatives, merger analysis, financial planning, and process reengineering.",
+            "employmentType": "",
+            "start": {
+                "year": 1993,
+                "month": 0,
+                "day": 0
+            },
+            "end": {
+                "year": 1999,
+                "month": 0,
+                "day": 0
+            }
+        }
+    ],
+    "fullPositions": [
+        {
+            "companyId": 2382910,
+            "companyName": "Amazon Web Services (AWS)",
+            "companyUsername": "amazon-web-services",
+            "companyURL": "https://www.linkedin.com/company/amazon-web-services/",
+            "companyLogo": "https://media.licdn.com/dms/image/v2/D4E0BAQE0fp2sCqnVLg/company-logo_400_400/company-logo_400_400/0/1738855736997/amazon_web_services_logo?e=1753315200&v=beta&t=7duDDpQor5pLLqIbUhgbmTB6rW0Xg8TSTklrNUQkgHs",
+            "companyIndustry": "Information Technology & Services",
+            "companyStaffCountRange": "10001+",
+            "title": "CEO",
+            "multiLocaleTitle": {
+                "en_US": "CEO"
+            },
+            "multiLocaleCompanyName": {
+                "en_US": "Amazon Web Services (AWS)"
+            },
+            "location": "",
+            "locationType": "",
+            "description": "Led AWS from pre-revenue to $100B revenue run-rate with 37% operating margin. AWS is the world’s most comprehensive and broadly adopted cloud offering.",
+            "employmentType": "",
+            "start": {
+                "year": 2021,
+                "month": 5,
+                "day": 0
+            },
+            "end": {
+                "year": 2024,
+                "month": 6,
+                "day": 0
+            }
+        },
+        {
+            "companyId": 206993,
+            "companyName": "Tableau Software",
+            "companyUsername": "tableau-software",
+            "companyURL": "https://www.linkedin.com/company/tableau-software/",
+            "companyLogo": "https://media.licdn.com/dms/image/v2/C560BAQGbNutqXFCq8g/company-logo_400_400/company-logo_400_400/0/1630636446931/tableau_software_logo?e=1753315200&v=beta&t=4G5M3wnx1AOx_ITDoWGmco2Pqb8w-NREKBLW4zlq_zk",
+            "companyIndustry": "Computer Software",
+            "companyStaffCountRange": "1001 - 5000",
+            "title": "CEO",
+            "multiLocaleTitle": {
+                "en_US": "CEO"
+            },
+            "multiLocaleCompanyName": {
+                "en_US": "Tableau Software"
+            },
+            "location": "Seattle, WA",
+            "locationType": "",
+            "description": "Transformed Tableau to subscription model from perpetual licensing. Led company through its acquisition by Salesforce, in what was the third largest software industry acquisition at the time. Tableau helps people see and understand data. People use Tableau’s intuitive business analytics software to fuel exploration, ask questions, and share insights across their organizations.",
+            "employmentType": "",
+            "start": {
+                "year": 2016,
+                "month": 0,
+                "day": 0
+            },
+            "end": {
+                "year": 2021,
+                "month": 5,
+                "day": 0
+            }
+        },
+        {
+            "companyId": 2382910,
+            "companyName": "Amazon Web Services (AWS)",
+            "companyUsername": "amazon-web-services",
+            "companyURL": "https://www.linkedin.com/company/amazon-web-services/",
+            "companyLogo": "https://media.licdn.com/dms/image/v2/D4E0BAQE0fp2sCqnVLg/company-logo_400_400/company-logo_400_400/0/1738855736997/amazon_web_services_logo?e=1753315200&v=beta&t=7duDDpQor5pLLqIbUhgbmTB6rW0Xg8TSTklrNUQkgHs",
+            "companyIndustry": "Information Technology & Services",
+            "companyStaffCountRange": "10001+",
+            "title": "Vice President of Marketing, Sales, & Support - COO role",
+            "multiLocaleTitle": {
+                "en_US": "Vice President of Marketing, Sales, & Support - COO role"
+            },
+            "multiLocaleCompanyName": {
+                "en_US": "Amazon Web Services (AWS)"
+            },
+            "location": "Seattle, WA",
+            "locationType": "",
+            "description": "Worldwide responsibility for AWS marketing, sales, business development, partner management, technical support and customer service, and product marketing/mgmt. Member of Amazon's 18-person senior operating committee (S-Team). Took AWS from pre-revenue to $13B+ revenue business still growing 50%/yr while growing team size from fewer than 10 to thousands.",
+            "employmentType": "",
+            "start": {
+                "year": 2005,
+                "month": 0,
+                "day": 0
+            },
+            "end": {
+                "year": 2016,
+                "month": 0,
+                "day": 0
+            }
+        },
+        {
+            "companyId": 3646,
+            "companyName": "RealNetworks",
+            "companyUsername": "realnetworks",
+            "companyURL": "https://www.linkedin.com/company/realnetworks/",
+            "companyLogo": "https://media.licdn.com/dms/image/v2/C560BAQEK239n0aSjRw/company-logo_400_400/company-logo_400_400/0/1630584651337/realnetworks_logo?e=1753315200&v=beta&t=c5DogD-fJhQvkIY7e7z0rBOSl29p1yQWYg1mb6RGi0k",
+            "companyIndustry": "Computer Software",
+            "companyStaffCountRange": "201 - 500",
+            "title": "Vice President (general management, marketing)",
+            "multiLocaleTitle": {
+                "en_US": "Vice President (general management, marketing)"
+            },
+            "multiLocaleCompanyName": {
+                "en_US": "RealNetworks"
+            },
+            "location": "Seattle, WA",
+            "locationType": "",
+            "description": "Vice President for Video Subscription business, RealPlayer, and Customer Support; responsible for over one-third of company revenue. Previously served as Vice President of Consumer Marketing, including running real.com, ranking in top ten most trafficked websites. Also served as General Manager for Media Systems Marketing, responsible for all marketing activities to enterprises, developers, and IT organizations.",
+            "employmentType": "",
+            "start": {
+                "year": 1999,
+                "month": 0,
+                "day": 0
+            },
+            "end": {
+                "year": 2005,
+                "month": 0,
+                "day": 0
+            }
+        },
+        {
+            "companyId": 2453,
+            "companyName": "Mercer Management Consulting",
+            "companyUsername": "mercer-management-consulting",
+            "companyURL": "https://www.linkedin.com/company/mercer-management-consulting/",
+            "companyLogo": "",
+            "companyIndustry": "Management Consulting",
+            "companyStaffCountRange": "1001 - 5000",
+            "title": "Principal",
+            "multiLocaleTitle": {
+                "en_US": "Principal"
+            },
+            "multiLocaleCompanyName": {
+                "en_US": "Mercer Management Consulting"
+            },
+            "location": "Boston, MA",
+            "locationType": "",
+            "description": "Partner in strategy consulting firm, focused on computing and communications industries. Led client engagements including marketing strategy, cost benchmarking, strategic growth initiatives, merger analysis, financial planning, and process reengineering.",
+            "employmentType": "",
+            "start": {
+                "year": 1993,
+                "month": 0,
+                "day": 0
+            },
+            "end": {
+                "year": 1999,
+                "month": 0,
+                "day": 0
+            }
+        }
+    ],
+    "skills": [
+        {
+            "name": "Entrepreneurship",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 12
+        },
+        {
+            "name": "Product Marketing",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 7
+        },
+        {
+            "name": "Business Strategy",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 8
+        },
+        {
+            "name": "Mergers & Acquisitions",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 5
+        },
+        {
+            "name": "Management",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 13
+        },
+        {
+            "name": "Marketing Strategy",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 9
+        },
+        {
+            "name": "SaaS",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 5
+        },
+        {
+            "name": "Business Development",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 21
+        },
+        {
+            "name": "Product Management",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 28
+        },
+        {
+            "name": "Management Consulting",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 3
+        },
+        {
+            "name": "Program Management",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 4
+        },
+        {
+            "name": "Marketing",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 5
+        },
+        {
+            "name": "Cloud Computing",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 22
+        },
+        {
+            "name": "Go-to-market Strategy",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 9
+        },
+        {
+            "name": "Sales",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 2
+        },
+        {
+            "name": "Leadership",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 5
+        },
+        {
+            "name": "Start-ups",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 5
+        },
+        {
+            "name": "Strategy",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 8
+        },
+        {
+            "name": "Strategic Partnerships",
+            "passedSkillAssessment": false,
+            "endorsementsCount": 22
+        }
+    ],
+    "projects": {},
+    "supportedLocales": [
+        {
+            "country": "US",
+            "language": "en"
+        }
+    ],
+    "multiLocaleFirstName": {
+        "en": "Adam"
+    },
+    "multiLocaleLastName": {
+        "en": "Selipsky"
+    },
+    "multiLocaleHeadline": {
+        "en": "Former CEO at Amazon Web Services (AWS). Former President and CEO at Tableau. "
+    }
+}
