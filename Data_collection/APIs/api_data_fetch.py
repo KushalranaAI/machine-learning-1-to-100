@@ -93,7 +93,7 @@ def main():
     # LinkedIn API headers (Replace with your own RapidAPI Key)
     headers = {
         "x-rapidapi-host": "linkedin-data-api.p.rapidapi.com",
-        "x-rapidapi-key": "0d79fa658emsh7d8d89c6b756582p180503jsn2e6a6c7bb7dd",
+        "x-rapidapi-key": "Enter you rapid api key",
     }
 
     # API URL and Output Filepaths for each query
