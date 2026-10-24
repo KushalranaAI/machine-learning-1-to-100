@@ -12,6 +12,11 @@ export type AskRequest = {
 
 type Ctx = {
   open: boolean;
+  /** panel width in px (drag the edge to change), and whether it is expanded to a wide reading size */
+  width: number;
+  expanded: boolean;
+  setWidth(w: number): void;
+  toggleExpanded(): void;
   view: "chat" | "settings";
   page: PageContext;
   request: (AskRequest & { id: number }) | null;
@@ -22,6 +27,11 @@ type Ctx = {
   setView(v: "chat" | "settings"): void;
   ask(req: AskRequest): void;
 };
+
+export const DEFAULT_WIDTH = 420;
+export const MIN_WIDTH = 340;
+export const MAX_WIDTH = 1000;
+export const EXPANDED_WIDTH = 820;
 
 const AICtx = createContext<Ctx | null>(null);
 
@@ -34,12 +44,19 @@ export function useAI(): Ctx {
 export function AIProvider({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const [view, setView] = useState<"chat" | "settings">("chat");
+  const [width, setWidthState] = useState(DEFAULT_WIDTH);
+  const [expanded, setExpanded] = useState(false);
   const [page, setPageState] = useState<PageContext>(GENERAL);
   const [request, setRequest] = useState<Ctx["request"]>(null);
   const counter = useRef(0);
 
-  // remember panel visibility across visits
+  // remember panel visibility and size across visits
   useEffect(() => {
+    try {
+      const w = Number(localStorage.getItem("ml100-ai-width"));
+      if (w >= MIN_WIDTH && w <= MAX_WIDTH) setWidthState(w);
+      setExpanded(localStorage.getItem("ml100-ai-expanded") === "1");
+    } catch {}
     try {
       if (localStorage.getItem("ml100-ai-open") === "1" && window.matchMedia("(min-width: 1360px)").matches) setOpen(true);
     } catch {}
@@ -49,6 +66,24 @@ export function AIProvider({ children }: { children: React.ReactNode }) {
       localStorage.setItem("ml100-ai-open", open ? "1" : "0");
     } catch {}
   }, [open]);
+
+  const setWidth = useCallback((w: number) => {
+    const next = Math.round(Math.min(MAX_WIDTH, Math.max(MIN_WIDTH, w)));
+    setWidthState(next);
+    setExpanded(false);
+    try {
+      localStorage.setItem("ml100-ai-width", String(next));
+      localStorage.setItem("ml100-ai-expanded", "0");
+    } catch {}
+  }, []);
+  const toggleExpanded = useCallback(() => {
+    setExpanded((e) => {
+      try {
+        localStorage.setItem("ml100-ai-expanded", e ? "0" : "1");
+      } catch {}
+      return !e;
+    });
+  }, []);
 
   const openPanel = useCallback((v?: "chat" | "settings") => {
     if (v) setView(v);
@@ -75,6 +110,10 @@ export function AIProvider({ children }: { children: React.ReactNode }) {
   const value = useMemo<Ctx>(
     () => ({
       open,
+      width,
+      expanded,
+      setWidth,
+      toggleExpanded,
       view,
       page,
       request,
@@ -85,7 +124,7 @@ export function AIProvider({ children }: { children: React.ReactNode }) {
       setView,
       ask,
     }),
-    [open, view, page, request, openPanel, ask],
+    [open, width, expanded, setWidth, toggleExpanded, view, page, request, openPanel, ask],
   );
   return <AICtx.Provider value={value}>{children}</AICtx.Provider>;
 }

@@ -25,8 +25,9 @@ You need Python 3.10+ and Node.js 20.9+ (CI uses Python 3.12 and Node 22).
 
 ```bash
 python -m venv .venv && source .venv/bin/activate        # Windows: .venv\Scripts\activate
-python start.py            # installs what's missing, builds the web app once, opens http://127.0.0.1:3000
-python start.py --dev      # hot-reloading dev server, for when you edit the web app itself
+python start.py            # installs what's missing, starts the live-reloading app, opens http://127.0.0.1:3000
+                           # edits to lessons, projects, code and the web app show up by themselves
+python start.py --prod     # build once and run the production server instead
 ```
 
 ## Check your change before opening the pull request
@@ -35,7 +36,8 @@ CI runs three independent checks. Run the ones that match what you touched:
 
 ```bash
 python -m pytest -q                                # lessons, projects and every algorithm vs scikit-learn
-cd web && npm run verify                           # web app: type check + production build
+cd web && npm run verify                           # web app: unit tests (vault, .env relay), type check, production build
+cd web && npm run build:pages                      # the static GitHub Pages copy (CI builds it on every pull request)
 cmake -S cpp -B cpp/build && cmake --build cpp/build && ctest --test-dir cpp/build --output-on-failure   # C++
 ```
 
@@ -63,8 +65,8 @@ exercise, or report something that confused you.
 - **Quote YAML text that contains a colon.** In lesson frontmatter write `- "Fair protocol: train / test"`, not
   `- Fair protocol: train / test`. Otherwise YAML reads it as a key and value; a test checks this.
 - **Escape currency in Markdown.** Write `\$40k`, because `$...$` is rendered as math.
-- **Never commit secrets.** API keys belong only in your own browser (the AI tutor stores them there) or in your
-  own environment. Don't add keys, tokens, `.env` files or `kaggle.json`.
+- **Never commit secrets.** API keys belong only in your own browser (the AI tutor stores them there, encrypted) or in your
+  git-ignored `.env`. Don't add keys, tokens, `.env` files or `kaggle.json`, and never give a key variable a `NEXT_PUBLIC_` prefix.
 - **Don't commit data or generated output.** Datasets are downloaded by each project's `download_data.py`, and plots go to `outputs/`.
 - **Match the surrounding code.** Same naming, comment density and style as the file you are editing.
 - **Be kind.** Disagree with ideas, not people. Beginners ask the best questions.
@@ -81,3 +83,4 @@ exercise, or report something that confused you.
 - The `python`, `web` and `cpp` checks must pass, and the maintainer must approve (see `.github/CODEOWNERS`).
 - Pull requests from first-time contributors need a maintainer to approve the automated checks before they run.
 - The repository's protection rules live in `.github/rulesets/protect-main.json`.
+- Merged changes are published to GitHub Pages automatically, as a static read-only copy of the web app.

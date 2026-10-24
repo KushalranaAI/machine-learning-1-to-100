@@ -8,6 +8,10 @@ import LessonStatus from "@/components/progress/LessonStatus";
 import Icon, { type IconName, sectionIcon } from "@/components/ui/Icon";
 import { flatLessons, getCode, getLesson, getProjects, getSections } from "@/lib/content";
 
+export function generateStaticParams() {
+  return flatLessons().map((l) => ({ section: l.section, topic: l.slug }));
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ section: string; topic: string }> }): Promise<Metadata> {
   const { section, topic } = await params;
   return { title: getLesson(section, topic)?.title ?? "Lesson" };

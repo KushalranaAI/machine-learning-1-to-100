@@ -11,12 +11,13 @@ import { setNote, progressStore } from "@/lib/progress";
 import { toast } from "@/lib/toast";
 import Markdown, { CopyButton } from "../Markdown";
 import Icon from "../ui/Icon";
-import { useAI } from "./AIProvider";
+import { DEFAULT_WIDTH, EXPANDED_WIDTH, MAX_WIDTH, MIN_WIDTH, useAI } from "./AIProvider";
 import AISettings from "./AISettings";
+import UnlockCard from "./UnlockCard";
 
 export default function AIPanel() {
   const ai = useAI();
-  const { settings, connection, ready } = useConnection();
+  const { settings, connection, ready, status } = useConnection();
   const provider = providerById(settings.provider);
   const key = ai.page.key;
   const keyRef = useRef(key);
@@ -158,6 +159,40 @@ export default function AIPanel() {
 
   return (
     <aside className="ai-panel" aria-label="AI tutor" hidden={!ai.open}>
+      <div
+        className="ai-resize"
+        role="separator"
+        aria-orientation="vertical"
+        aria-label="Resize the AI tutor. Drag, or use the left and right arrow keys; double-click to reset."
+        aria-valuemin={MIN_WIDTH}
+        aria-valuemax={MAX_WIDTH}
+        aria-valuenow={ai.expanded ? EXPANDED_WIDTH : ai.width}
+        tabIndex={0}
+        onDoubleClick={() => ai.setWidth(DEFAULT_WIDTH)}
+        onKeyDown={(e) => {
+          const cur = ai.expanded ? EXPANDED_WIDTH : ai.width;
+          if (e.key === "ArrowLeft") { e.preventDefault(); ai.setWidth(cur + 32); }
+          if (e.key === "ArrowRight") { e.preventDefault(); ai.setWidth(cur - 32); }
+        }}
+        onPointerDown={(e) => {
+          e.preventDefault();
+          const startX = e.clientX;
+          const startW = ai.expanded ? EXPANDED_WIDTH : ai.width;
+          const el = e.currentTarget;
+          el.setPointerCapture(e.pointerId);
+          document.body.classList.add("resizing");
+          const move = (ev: PointerEvent) => ai.setWidth(startW + (startX - ev.clientX)); // dragging left makes it wider
+          const up = () => {
+            el.removeEventListener("pointermove", move);
+            el.removeEventListener("pointerup", up);
+            el.removeEventListener("pointercancel", up);
+            document.body.classList.remove("resizing");
+          };
+          el.addEventListener("pointermove", move);
+          el.addEventListener("pointerup", up);
+          el.addEventListener("pointercancel", up);
+        }}
+      />
       <header className="ai-head">
         <div className="ai-title">
           <Icon name="sparkles" size={18} />
@@ -174,6 +209,9 @@ export default function AIPanel() {
               <Icon name="trash" />
             </button>
           )}
+          <button type="button" className={`icon-btn ${ai.expanded ? "on" : ""}`} onClick={ai.toggleExpanded} aria-pressed={ai.expanded} aria-label={ai.expanded ? "Make the AI tutor narrower" : "Expand the AI tutor"} title={ai.expanded ? "Narrower" : "Expand for tables and code"}>
+            <Icon name="expand" />
+          </button>
           <button type="button" className={`icon-btn ${ai.view === "settings" ? "on" : ""}`} onClick={() => ai.setView(ai.view === "settings" ? "chat" : "settings")} aria-label="AI settings" title="AI settings">
             <Icon name="sliders" />
           </button>
@@ -197,7 +235,8 @@ export default function AIPanel() {
               stick.current = el.scrollHeight - el.scrollTop - el.clientHeight < 80;
             }}
           >
-            {!ready && (
+            {status === "locked" && <UnlockCard />}
+            {!ready && status !== "locked" && (
               <div className="ai-empty card">
                 <div className="ai-empty-icon"><Icon name="sparkles" size={22} /></div>
                 <h3>Connect an AI to get a tutor</h3>

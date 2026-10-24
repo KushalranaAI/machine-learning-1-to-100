@@ -3,18 +3,24 @@ import { useEffect, useState } from "react";
 import { clearChats } from "@/lib/ai/chats";
 import { listModels } from "@/lib/ai/client";
 import type { ProviderId } from "@/lib/ai/providers";
-import { availableProviders, buildConnection, forgetAllKeys, isReady, moveKeys, saveKey, settingsStore, useConnection, useIsLocal } from "@/lib/ai/settings";
+import { availableProviders, buildConnection, forgetAllKeys, isReady, moveKeys, lockVault, saveCredentials, setProtection, settingsStore, useConnection, useIsLocal } from "@/lib/ai/settings";
 import Icon from "../ui/Icon";
+import UnlockCard from "./UnlockCard";
 
 type Status = { tone: "idle" | "busy" | "ok" | "bad"; message?: string; hint?: string };
 
 export default function AISettings({ onDone }: { onDone: () => void }) {
-  const { settings, keys, connection } = useConnection();
+  const { settings, keys, urls, secure, status: vaultStatus, server, connection } = useConnection();
+  const [settingUp, setSettingUp] = useState(false);
+  const [pass1, setPass1] = useState("");
+  const [pass2, setPass2] = useState("");
+  const [protectErr, setProtectErr] = useState("");
+  const [protectMsg, setProtectMsg] = useState("");
   const isLocal = useIsLocal();
   const offered = availableProviders(isLocal); // Azure OpenAI only shows up when this page is served from localhost
   const provider = offered.find((p) => p.id === settings.provider) ?? offered[0];
   const [apiKey, setApiKey] = useState(keys[provider.id] ?? "");
-  const [baseUrl, setBaseUrl] = useState(settings.baseUrls[provider.id] ?? provider.baseUrl);
+  const [baseUrl, setBaseUrl] = useState(urls[provider.id] ?? provider.baseUrl);
   const [showKey, setShowKey] = useState(false);
   const [models, setModels] = useState<string[]>([]);
   const [status, setStatus] = useState<Status>({ tone: "idle" });
@@ -22,7 +28,7 @@ export default function AISettings({ onDone }: { onDone: () => void }) {
   // switching provider loads that provider's saved values
   useEffect(() => {
     setApiKey(keys[provider.id] ?? "");
-    setBaseUrl(settings.baseUrls[provider.id] ?? provider.baseUrl);
+    setBaseUrl(urls[provider.id] ?? provider.baseUrl);
     setModels([]);
     setStatus({ tone: "idle" });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -34,9 +40,8 @@ export default function AISettings({ onDone }: { onDone: () => void }) {
     setStatus({ tone: "busy", message: "Connecting…" });
     const key = apiKey.trim();
     const base = baseUrl.trim() || provider.baseUrl;
-    saveKey(provider.id, key, settings.remember);
-    update({ baseUrls: { ...settings.baseUrls, [provider.id]: base } });
-    const probe = buildConnection({ ...settings, baseUrls: { ...settings.baseUrls, [provider.id]: base } }, { [provider.id]: key });
+    saveCredentials(provider.id, key, base === provider.baseUrl ? undefined : base, settings.remember);
+    const probe = buildConnection(settings, { [provider.id]: key }, provider.id, { [provider.id]: base }, server); // a key held in .env is never probed from the browser
     try {
       const found = await listModels(probe);
       setModels(found);
@@ -45,7 +50,7 @@ export default function AISettings({ onDone }: { onDone: () => void }) {
       update({ models: { ...settings.models, [provider.id]: preferred }, configured: true });
       setStatus({
         tone: "ok",
-        message: found.length ? `Connected - ${found.length} models available.` : provider.kind === "azure" ? "Endpoint and key accepted. Now enter your deployment name below." : "Connected, but no models were listed. Type a model name below.",
+        message: fromEnv ? "Ready. The server will use the key in .env." : found.length ? `Connected - ${found.length} models available.` : provider.kind === "azure" ? "Endpoint and key accepted. Now enter your deployment name below." : "Connected, but no models were listed. Type a model name below.",
       });
     } catch (e) {
       const err = e as { message?: string; hint?: string };
@@ -53,6 +58,7 @@ export default function AISettings({ onDone }: { onDone: () => void }) {
     }
   }
 
+  const fromEnv = connection.viaServer === true; // the key for this provider is in .env on this computer
   const model = settings.models[provider.id] ?? provider.defaultModel;
   return (
     <div className="ai-settings">
@@ -70,7 +76,10 @@ export default function AISettings({ onDone }: { onDone: () => void }) {
             >
               <span className="provider-top">
                 <b>{p.label}</b>
-                <span className={`pill ${p.local ? "good" : ""}`}>{p.local ? "local" : "cloud"}</span>
+                <span className="row" style={{ gap: 4 }}>
+                  {(p.id === "openai" || p.id === "anthropic" || p.id === "azure") && server[p.id] && <span className="pill accent">.env</span>}
+                  <span className={`pill ${p.local ? "good" : ""}`}>{p.local ? "local" : "cloud"}</span>
+                </span>
               </span>
               <span className="muted">{p.tagline}</span>
             </button>
@@ -97,7 +106,14 @@ export default function AISettings({ onDone }: { onDone: () => void }) {
           </label>
         )}
 
-        {(provider.needsKey || provider.id === "custom") && (
+        {fromEnv && (
+          <div className="notice ok" role="status">
+            <Icon name="shield" size={16} />
+            <div className="small"><b>Using the key in your <code>.env</code> file.</b> It stays on this computer and is attached by the local server; nothing to paste, and nothing is stored in the browser.</div>
+          </div>
+        )}
+
+        {(provider.needsKey || provider.id === "custom") && !fromEnv && (
           <label className="field">
             <span>
               {provider.keyLabel}
@@ -124,11 +140,11 @@ export default function AISettings({ onDone }: { onDone: () => void }) {
         )}
 
         <div className="row">
-          <button type="button" className="btn primary" onClick={connect} disabled={status.tone === "busy" || (provider.needsKey && !apiKey.trim()) || (provider.kind === "azure" && !baseUrl.trim())}>
-            <Icon name="zap" size={16} /> {status.tone === "busy" ? "Connecting…" : provider.needsKey || provider.id === "custom" || provider.editableBaseUrl ? "Save & test connection" : "Test connection"}
+          <button type="button" className="btn primary" onClick={connect} disabled={status.tone === "busy" || (provider.needsKey && !apiKey.trim() && !fromEnv) || (provider.kind === "azure" && !baseUrl.trim())}>
+            <Icon name="zap" size={16} /> {status.tone === "busy" ? "Connecting…" : fromEnv ? "Use this key" : provider.needsKey || provider.id === "custom" || provider.editableBaseUrl ? "Save & test connection" : "Test connection"}
           </button>
           {keys[provider.id] && provider.needsKey && (
-            <button type="button" className="btn" onClick={() => { saveKey(provider.id, "", settings.remember); setApiKey(""); setStatus({ tone: "idle" }); }}>
+            <button type="button" className="btn" onClick={() => { saveCredentials(provider.id, "", undefined, settings.remember); setApiKey(""); setStatus({ tone: "idle" }); }}>
               Remove key
             </button>
           )}
@@ -143,6 +159,9 @@ export default function AISettings({ onDone }: { onDone: () => void }) {
           </div>
         )}
 
+        {fromEnv && provider.kind === "azure" ? (
+          <p className="muted small">The deployment comes from <code>AZURE_OPENAI_DEPLOYMENT</code> in your <code>.env</code>.</p>
+        ) : (
         <label className="field">
           <span>{provider.modelLabel ?? "Model"}</span>
           <input
@@ -156,6 +175,7 @@ export default function AISettings({ onDone }: { onDone: () => void }) {
           <datalist id="ai-models">{models.map((m) => <option key={m} value={m} />)}</datalist>
           <span className="muted small">{provider.modelHelp ?? "Pick from the list after connecting, or type any model name."}</span>
         </label>
+        )}
       </div>
 
       <div className="ai-section">
@@ -178,13 +198,90 @@ export default function AISettings({ onDone }: { onDone: () => void }) {
             </button>
           ))}
         </div>
-        <div className="notice info">
-          <Icon name="shield" size={16} />
-          <div className="small">
-            Keys are saved only in your browser&apos;s storage and sent straight to the provider you chose - this app&apos;s server never sees them, and they are never written to the repository.
-            Anyone who can use this browser profile can read them, so avoid saving keys on a shared computer, and prefer a key with a spending limit.
+        {secure ? (
+          <div className="notice info">
+            <Icon name="shield" size={16} />
+            <div className="small">
+              <b>Encrypted at rest (AES-256-GCM).</b> A copy of the stored data is unreadable on its own. Keys go only to the provider you chose; this app&apos;s server never sees them.
+              <br /><b>What it can&apos;t stop:</b> with &quot;this device&quot; protection, anything running in this page, or anyone using your unlocked browser, can still use the saved key. A passphrase fixes the second case but not malicious script while you are using the app. Prefer a key with a spending limit.
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="notice bad" role="alert">
+            <Icon name="alert" size={16} />
+            <div className="small">
+              <b>Can&apos;t encrypt on this address.</b> Browsers only allow encryption on <code>https://</code> pages and <code>localhost</code>. Your key will be kept in memory for this tab only and never written to storage. Open the app at <code>http://localhost:3000</code> to save it.
+            </div>
+          </div>
+        )}
+
+        {secure && (
+          <>
+            <h3 style={{ marginTop: 18 }}>How it is protected</h3>
+            {vaultStatus === "locked" ? (
+              <UnlockCard />
+            ) : (
+              <>
+                <div className="choice" role="radiogroup" aria-label="Protection">
+                  {([
+                    { v: "device", t: "This device", d: "Nothing to type. A browser-held key you can't read or export." },
+                    { v: "passphrase", t: "A passphrase", d: "You type it once per browser session. Without it, nobody can decrypt." },
+                  ] as const).map((o) => (
+                    <button
+                      key={o.v}
+                      type="button"
+                      role="radio"
+                      aria-checked={settings.protection === o.v}
+                      className={`choice-opt ${settings.protection === o.v ? "selected" : ""}`}
+                      onClick={() => {
+                        if (o.v === settings.protection) return;
+                        if (o.v === "device") void setProtection("device").then(() => setProtectMsg("Now protected by this device's key."));
+                        else setSettingUp(true);
+                      }}
+                    >
+                      <b>{o.t}</b>
+                      <span className="muted small">{o.d}</span>
+                    </button>
+                  ))}
+                </div>
+                {settingUp && (
+                  <form
+                    className="passphrase-form"
+                    onSubmit={async (e) => {
+                      e.preventDefault();
+                      if (pass1.length < 8) return setProtectErr("Use at least 8 characters.");
+                      if (pass1 !== pass2) return setProtectErr("The two passphrases don't match.");
+                      try {
+                        await setProtection("passphrase", pass1);
+                        setSettingUp(false);
+                        setPass1("");
+                        setPass2("");
+                        setProtectErr("");
+                        setProtectMsg("Passphrase set. You'll be asked for it once per browser session. If you forget it, remove the saved keys and add them again: it can't be recovered.");
+                      } catch (err) {
+                        setProtectErr(err instanceof Error ? err.message : "Couldn't set the passphrase.");
+                      }
+                    }}
+                  >
+                    <label className="field"><span>New passphrase (8+ characters)</span><input type="password" value={pass1} onChange={(e) => setPass1(e.target.value)} autoComplete="new-password" /></label>
+                    <label className="field"><span>Type it again</span><input type="password" value={pass2} onChange={(e) => setPass2(e.target.value)} autoComplete="new-password" /></label>
+                    {protectErr && <div className="notice bad" role="alert"><Icon name="alert" size={16} /><div className="small">{protectErr}</div></div>}
+                    <div className="row">
+                      <button type="submit" className="btn primary"><Icon name="shield" size={16} /> Protect with passphrase</button>
+                      <button type="button" className="btn" onClick={() => { setSettingUp(false); setProtectErr(""); setPass1(""); setPass2(""); }}>Cancel</button>
+                    </div>
+                  </form>
+                )}
+                {settings.protection === "passphrase" && !settingUp && (
+                  <div className="row" style={{ marginTop: 8 }}>
+                    <button type="button" className="btn" onClick={() => lockVault()}><Icon name="key" size={16} /> Lock now</button>
+                  </div>
+                )}
+                {protectMsg && <div className="notice ok" role="status"><Icon name="circle-check" size={16} /><div className="small">{protectMsg}</div></div>}
+              </>
+            )}
+          </>
+        )}
       </div>
 
       <div className="ai-section">
@@ -214,7 +311,7 @@ export default function AISettings({ onDone }: { onDone: () => void }) {
           type="button"
           className="btn danger"
           onClick={() => {
-            if (!confirm("Remove every saved API key and all saved AI chats from this browser?")) return;
+            if (!confirm("Remove every saved API key (and its encryption key or passphrase protection) and all saved AI chats from this browser?")) return;
             forgetAllKeys();
             clearChats();
             setApiKey("");

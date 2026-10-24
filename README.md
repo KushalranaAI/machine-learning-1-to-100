@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/KushalranaAI/machine-learning-1-to-100/actions/workflows/ci.yml/badge.svg)](https://github.com/KushalranaAI/machine-learning-1-to-100/actions/workflows/ci.yml)
 
+*Built by [Kushal Rana](https://kushalranaai.github.io/) · [Portfolio](https://kushalranaai.github.io/) · [LinkedIn](https://www.linkedin.com/in/kushal-rana) · [YouTube](https://www.youtube.com/@naaku-o2x) · [X](https://x.com/KushalranaAI) · [Medium](https://kushalrana448.medium.com/)*
+
 **All of classical machine learning in one repository: from collecting raw data to gradient boosting, neural
 networks and reinforcement learning. Every algorithm is derived mathematically and implemented from scratch.
 It ships with an interactive local web app and 5 end-to-end projects on real datasets.**
@@ -32,15 +34,21 @@ python start.py
 ```
 
 `start.py` checks Python (3.10+) and Node.js (20.9+). It installs the Python and npm packages if they're missing,
-builds the web app once, starts it at **http://127.0.0.1:3000** and opens your browser.
+starts the live-reloading app at **http://127.0.0.1:3000** and opens your browser. Edit a lesson, a project, the
+Python or C++ code, or the web app, and the open page updates by itself; no restart needed.
 
 | Option | What it does |
 |---|---|
-| `python start.py --dev` | hot-reloading dev server, for when you edit the web app itself |
+| `python start.py --prod` | build once and run the faster production server (no live reload) |
 | `python start.py --port 4000 --no-browser` | different port, no browser tab |
 | `python start.py --skip-install` / `--reinstall` | skip or force the dependency step |
 
 The app only listens on `127.0.0.1`, because its Run buttons execute the course scripts on your machine.
+
+**Just want to read and play?** A read-only copy is published at
+**https://kushalranaai.github.io/machine-learning-1-to-100/** (rebuilt automatically from `main`). It has the lessons,
+interactive visuals, diagrams, progress tracking, notes and the AI tutor (Claude, OpenAI, Gemini, or a local Ollama
+model). It can't run the Python scripts or offer Azure OpenAI; for those, run the app locally as above.
 
 ### Using the app
 
@@ -55,9 +63,18 @@ The app only listens on `127.0.0.1`, because its Run buttons execute the course 
   - **Cloud:** Claude, OpenAI or Gemini with your own API key.
   - **Azure OpenAI** (your endpoint, deployment name and API key) is offered only when the app runs on `localhost` / `127.0.0.1`,
     and is hidden on any other address, for example a hosted copy of the app.
-  - **Your keys stay yours.** Settings, keys and chats are stored only in your browser (`localStorage`, or `sessionStorage` if you
-    choose "this session only") and are sent straight from the browser to the provider you pick. The app's server never sees them
-    and nothing is written to this repository. Don't save keys on a shared computer.
+  - **Your keys stay yours, and you enter them once.** Keys, endpoints and regions are saved in your browser as an
+    AES-256-GCM encrypted envelope (never readable text), so they survive restarts and a copy of the stored data is useless.
+    Pick how it is protected in AI settings: **this device** (a browser-held key that can't be exported; nothing to type) or
+    **a passphrase** (8+ characters, asked once per browser session; PBKDF2, 600,000 rounds). "This session only" forgets
+    them when the tab closes, and "Forget all keys" deletes them and the encryption key. Saved keys follow the address you open
+    the app at (`localhost:3000` vs `localhost:4000` are separate), and encryption needs `https://` or `localhost`.
+  - **Or keep keys out of the browser entirely:** copy [`.env.example`](.env.example) to `.env` in the repository root and fill in
+    `OPENAI_API_KEY`, `ANTHROPIC_API_KEY` and/or the three `AZURE_OPENAI_*` values (no restart needed). The local server then
+    attaches the key to requests; the browser never sees it and nothing is stored. Only on the local app, not the hosted copy.
+    Never prefix these names with `NEXT_PUBLIC_`; that would publish them.
+  - **Resize the tutor:** drag its left edge (or focus it and use the arrow keys), or press the expand button for a wide
+    reading size. Wide tables scroll sideways.
   - For LM Studio, enable CORS in its server settings. Ollama works out of the box on `localhost`.
 
 **Without the web app:** everything is plain Python. Run `pip install -r requirements.txt && pip install -e .`, then

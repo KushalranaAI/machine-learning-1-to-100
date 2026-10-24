@@ -186,3 +186,4 @@ projects/*/data/
 kaggle.json
 *.pem
 *.key
+.pages-build/

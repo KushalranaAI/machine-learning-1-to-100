@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { type Nav, lessonId, projectId } from "@/lib/nav";
 import { useProgress } from "@/lib/progress";
+import BuiltBy from "./Brand";
 import Icon, { type IconName, sectionIcon } from "./ui/Icon";
 import Ring from "./ui/Ring";
 
@@ -122,6 +123,8 @@ export default function Sidebar({ nav, open, onNavigate }: { nav: Nav; open: boo
           })}
         </ul>
       </details>
+
+      <BuiltBy className="side-brand" />
     </nav>
   );
 }

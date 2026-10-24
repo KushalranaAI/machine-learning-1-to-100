@@ -7,6 +7,11 @@ import SectionProgress from "@/components/progress/SectionProgress";
 import Icon, { sectionIcon } from "@/components/ui/Icon";
 import { getSectionBody, getSections } from "@/lib/content";
 
+// Lets the GitHub Pages export pre-render every part; the local app still renders on request.
+export function generateStaticParams() {
+  return getSections().map((s) => ({ section: s.slug }));
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ section: string }> }): Promise<Metadata> {
   const { section } = await params;
   return { title: getSections().find((x) => x.slug === section)?.title ?? "Part" };

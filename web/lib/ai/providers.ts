@@ -45,7 +45,7 @@ export const PROVIDERS: Provider[] = [
   {
     id: "custom",
     label: "Local server / other",
-    tagline: "LM Studio, llama.cpp, vLLM, OpenRouter, Groq … any OpenAI-compatible endpoint.",
+    tagline: "LM Studio, llama.cpp, vLLM … any OpenAI-compatible server running on this computer.",
     kind: "openai",
     local: true,
     baseUrl: "http://localhost:1234/v1",
@@ -54,7 +54,7 @@ export const PROVIDERS: Provider[] = [
     keyLabel: "API key (only if the server needs one)",
     defaultModel: "",
     contextChars: 6000,
-    setup: "In LM Studio start the local server (Developer tab) and enable CORS. Paste the server's base URL here.",
+    setup: "In LM Studio start the local server (Developer tab) and enable CORS. Paste the server's base URL here. For safety the app only connects to servers on localhost / 127.0.0.1.",
   },
   {
     id: "anthropic",

@@ -21,7 +21,10 @@ function crumbs(pathname: string, nav: Nav): { label: string; href?: string }[] 
     const p = nav.projects.find((x) => x.slug === a);
     return [{ label: "Projects", href: a ? "/projects" : undefined }, ...(p ? [{ label: p.title }] : [])];
   }
-  return [{ label: { progress: "My progress", lab: "Interactive lab", map: "Algorithm map" }[area] ?? area }];
+  const label = ({ progress: "My progress", lab: "Interactive lab", map: "Algorithm map" } as Record<string, string>)[area];
+  // Unknown routes get no breadcrumb: the static 404.html is rendered for "/_not-found" but shown at any URL,
+  // so anything derived from the path would differ between the server HTML and the client and fail hydration.
+  return label ? [{ label }] : [];
 }
 
 export default function Topbar({ nav, onMenu }: { nav: Nav; onMenu: () => void }) {

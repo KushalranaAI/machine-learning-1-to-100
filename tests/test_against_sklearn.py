@@ -308,7 +308,9 @@ def test_pca_and_kernel_pca(iris):
 
 def test_tsne_separates_clusters():
     X, y = skd.make_blobs(90, centers=3, n_features=10, random_state=0)
-    Y = ml.decomposition.TSNE(perplexity=15, n_iter=400, random_state=0).fit_transform(X)
+    # 1000 iterations: the first 250 are early exaggeration, so 400 leaves the embedding under-converged and the score
+    # depends on the platform's floating-point details (0.45 on CI vs 0.61 locally). Converged runs score 0.89+ on every seed.
+    Y = ml.decomposition.TSNE(perplexity=15, n_iter=1000, random_state=0).fit_transform(X)
     assert ml.metrics.silhouette_score(Y, y) > 0.6
 
 

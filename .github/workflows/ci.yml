@@ -46,8 +46,19 @@ jobs:
           cache: npm
           cache-dependency-path: web/package-lock.json
       - run: npm ci
+      # encrypted key storage (vault) and the .env relay
+      - run: npm test
       - run: npm run typecheck
       - run: npm run build
+      # The static copy for GitHub Pages (no server, no Run buttons). Built on every pull request so a break is caught
+      # before merge; only main uploads it for deployment.
+      - run: npm run build:pages
+        env:
+          PAGES_BASE_PATH: /${{ github.event.repository.name }}
+      - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          path: web/out
 
   cpp:
     name: cpp
@@ -58,3 +69,18 @@ jobs:
       - run: cmake -S cpp -B cpp/build -DCMAKE_BUILD_TYPE=Release
       - run: cmake --build cpp/build --parallel
       - run: ctest --test-dir cpp/build --output-on-failure
+
+  # Publishes the site once all three checks pass on main. Needs Settings -> Pages -> Source: "GitHub Actions".
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: [python, web, cpp]
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

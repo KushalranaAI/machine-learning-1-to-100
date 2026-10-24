@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """One command to run the whole course locally:
 
-    python start.py            # install what's missing, build the web app once, open http://127.0.0.1:3000
-    python start.py --dev      # hot-reloading dev server (use this if you edit the web app's code)
+    python start.py            # install what's missing, start the live-reloading app, open http://127.0.0.1:3000
+    python start.py --prod     # build once and run the faster production server (no live reload)
     python start.py --port 4000 --no-browser --skip-install
 
 The web app's "Run" buttons execute the lesson and project scripts with *this* Python interpreter,
@@ -110,7 +110,8 @@ def open_when_ready(url: str) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--dev", action="store_true", help="run the hot-reloading development server")
+    parser.add_argument("--prod", action="store_true", help="build once and run the production server (faster, but no live reload)")
+    parser.add_argument("--dev", action="store_true", help="the default; kept so old commands still work")
     parser.add_argument("--port", type=int, default=3000)
     parser.add_argument("--no-browser", action="store_true", help="don't open a browser tab")
     parser.add_argument("--skip-install", action="store_true", help="don't check or install dependencies")
@@ -125,14 +126,17 @@ def main() -> None:
         install(npm, args.reinstall)
 
     env = {**os.environ, "ML_PYTHON": sys.executable, "NEXT_TELEMETRY_DISABLED": "1"}
-    if not args.dev and needs_build():
+    dev = not args.prod
+    if not dev and needs_build():
         step("Building the web app (first run, or after the app's code changed)")
         if subprocess.run([npm, "run", "build"], cwd=WEB, env=env).returncode != 0:
-            fail("build failed - try `python start.py --dev`, and please report the error above")
+            fail("build failed - try `python start.py` (dev server), and please report the error above")
 
     url = f"http://127.0.0.1:{args.port}"
-    mode = "dev" if args.dev else "start"
-    step(f"Starting the course app ({'development' if args.dev else 'production'} server) on {url}")
+    mode = "dev" if dev else "start"
+    step(f"Starting the course app ({'live-reloading' if dev else 'production'} server) on {url}")
+    if dev:
+        print("  Edit lessons, projects, code or the web app: the page updates by itself. No restart needed.")
     if not args.no_browser:
         threading.Thread(target=open_when_ready, args=(url,), daemon=True).start()
     # The server binds to 127.0.0.1 only: the Run buttons execute code, so the app must not be reachable from the network.

@@ -6,7 +6,11 @@ import Mermaid from "@/components/Mermaid";
 import ProjectSteps from "@/components/ProjectSteps";
 import MarkComplete from "@/components/progress/MarkComplete";
 import Icon from "@/components/ui/Icon";
-import { flatLessons, getProject } from "@/lib/content";
+import { flatLessons, getProject, getProjects } from "@/lib/content";
+
+export function generateStaticParams() {
+  return getProjects().map((p) => ({ slug: p.slug }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;

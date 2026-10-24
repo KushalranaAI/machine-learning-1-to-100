@@ -5,6 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "mlscratch"
 version = "1.0.0"
+authors = [{ name = "Kushal Rana" }]
 description = "Classical machine-learning algorithms implemented from scratch in NumPy, for learning."
 requires-python = ">=3.10"
 dependencies = ["numpy>=1.26"]

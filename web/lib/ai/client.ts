@@ -3,7 +3,10 @@
 import { type ProviderId, type ProviderKind, providerById } from "./providers";
 
 export type ChatMsg = { role: "user" | "assistant"; content: string };
-export type Connection = { provider: ProviderId; kind: ProviderKind; baseUrl: string; apiKey: string; model: string; apiVersion?: string };
+export type Connection = { provider: ProviderId; kind: ProviderKind; baseUrl: string; apiKey: string; model: string; apiVersion?: string;
+  /** The key lives in .env on this computer: call the local relay with no key; the server attaches it. */
+  viaServer?: boolean;
+};
 
 export class AIError extends Error {
   constructor(message: string, public hint?: string) {
@@ -23,6 +26,7 @@ const azureBase = (c: Connection) => {
 const azureVersion = (c: Connection) => c.apiVersion?.trim() || "2024-10-21";
 
 function headers(c: Connection): Record<string, string> {
+  if (c.viaServer) return { "content-type": "application/json", "x-ml100": "1" };
   if (c.kind === "anthropic") {
     return {
       "content-type": "application/json",
@@ -111,7 +115,7 @@ export async function streamChat(
   let pick: (j: Record<string, any>) => string | undefined; // eslint-disable-line @typescript-eslint/no-explicit-any
 
   if (c.kind === "anthropic") {
-    res = await request(c, `${base}/v1/messages`, {
+    res = await request(c, c.viaServer ? "/api/ai-server/anthropic/v1/messages" : `${base}/v1/messages`, {
       method: "POST",
       headers: headers(c),
       signal: o.signal,
@@ -122,7 +126,7 @@ export async function streamChat(
       return j.type === "content_block_delta" && j.delta?.type === "text_delta" ? j.delta.text : undefined;
     };
   } else if (c.kind === "azure") {
-    res = await request(c, `${azureBase(c)}/openai/deployments/${encodeURIComponent(c.model)}/chat/completions?api-version=${encodeURIComponent(azureVersion(c))}`, {
+    res = await request(c, c.viaServer ? "/api/ai-server/azure/chat/completions" : `${azureBase(c)}/openai/deployments/${encodeURIComponent(c.model)}/chat/completions?api-version=${encodeURIComponent(azureVersion(c))}`, {
       method: "POST",
       headers: headers(c),
       signal: o.signal,
@@ -144,7 +148,7 @@ export async function streamChat(
     });
     pick = (j) => j.candidates?.[0]?.content?.parts?.map((p: { text?: string }) => p.text ?? "").join("") || undefined;
   } else {
-    res = await request(c, `${base}/chat/completions`, {
+    res = await request(c, c.viaServer ? "/api/ai-server/openai/v1/chat/completions" : `${base}/chat/completions`, {
       method: "POST",
       headers: headers(c),
       signal: o.signal,
@@ -182,6 +186,7 @@ export function complete(c: Connection, system: string, prompt: string, signal?:
 
 /** Model ids available to this key / server. Doubles as a connection test. */
 export async function listModels(c: Connection): Promise<string[]> {
+  if (c.viaServer) return []; // the key is on the server; the status check already confirmed it
   const base = trimSlash(c.baseUrl);
   if (c.kind === "anthropic") {
     const res = await request(c, `${base}/v1/models?limit=100`, { headers: headers(c) });

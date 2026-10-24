@@ -5,8 +5,27 @@ import Icon from "./ui/Icon";
 
 type Line = { kind: "out" | "err"; text: string };
 
+const REPO = process.env.NEXT_PUBLIC_REPO_URL;
+
+/** The hosted (GitHub Pages) copy has no server, so scripts can't run there. Say how to run them. */
+function RunLocally({ script }: { script: string }) {
+  return (
+    <div className="notice info run-local">
+      <Icon name="terminal" size={16} />
+      <div>
+        <b>Running code needs the local app.</b> This hosted copy is read-only. To run <code>{script.split("/").pop()}</code> and see its plots, clone the repository and start the app:
+        <pre className="small" style={{ margin: "8px 0 0" }}>{`git clone ${REPO}.git\ncd machine-learning-1-to-100\npython start.py`}</pre>
+      </div>
+    </div>
+  );
+}
+
+export default function RunPanel(props: { script: string; args?: string[]; label?: string }) {
+  return process.env.NEXT_PUBLIC_STATIC_EXPORT === "1" ? <RunLocally script={props.script} /> : <LiveRunPanel {...props} />;
+}
+
 /** Runs a course script with the learner's local Python and shows its output and figures live. */
-export default function RunPanel({ script, args = [], label = "Run" }: { script: string; args?: string[]; label?: string }) {
+function LiveRunPanel({ script, args = [], label = "Run" }: { script: string; args?: string[]; label?: string }) {
   const [lines, setLines] = useState<Line[]>([]);
   const [images, setImages] = useState<{ name: string; data: string }[]>([]);
   const [status, setStatus] = useState<"idle" | "running" | "ok" | "failed">("idle");

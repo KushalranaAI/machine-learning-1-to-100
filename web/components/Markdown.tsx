@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
@@ -80,6 +81,7 @@ export default function Markdown({ children, askable = true }: { children: strin
             const { node, ...rest } = props;
             void node;
             const external = props.href?.startsWith("http");
+            if (props.href?.startsWith("/")) return <Link href={props.href}>{rest.children}</Link>; // keeps the base path on GitHub Pages
             return <a {...rest} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined} />;
           },
         }}
