@@ -31,11 +31,19 @@ class _KNNBase(BaseEstimator):
         self.n_neighbors, self.weights, self.metric = n_neighbors, weights, metric
 
     def _neighbors(self, X):
-        D = pairwise_distances(as_2d(X), self.X_, self.metric)
-        idx = np.argpartition(D, kth=min(self.n_neighbors, D.shape[1]) - 1, axis=1)[:, : self.n_neighbors]
-        d = np.take_along_axis(D, idx, axis=1)
-        order = np.argsort(d, axis=1)
-        idx, d = np.take_along_axis(idx, order, 1), np.take_along_axis(d, order, 1)
+        # Queries go in batches so the distance matrix stays at ~20M entries (160 MB) instead of n_test × n_train.
+        X = as_2d(X)
+        k = min(self.n_neighbors, len(self.X_))
+        batch_size = max(1, min(1024, 20_000_000 // len(self.X_)))
+        idx_parts, d_parts = [], []
+        for start in range(0, len(X), batch_size):
+            D = pairwise_distances(X[start : start + batch_size], self.X_, self.metric)
+            idx = np.argpartition(D, kth=k - 1, axis=1)[:, :k]
+            d = np.take_along_axis(D, idx, axis=1)
+            order = np.argsort(d, axis=1)
+            idx_parts.append(np.take_along_axis(idx, order, 1))
+            d_parts.append(np.take_along_axis(d, order, 1))
+        idx, d = np.vstack(idx_parts), np.vstack(d_parts)
         w = np.ones_like(d) if self.weights == "uniform" else 1.0 / np.maximum(d, 1e-12)
         return idx, w
 
