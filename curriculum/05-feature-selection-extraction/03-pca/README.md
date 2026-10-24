@@ -19,6 +19,7 @@ prerequisites:
   - 04-feature-engineering/01-feature-scaling
 code:
   - mlscratch/decomposition.py:PCA
+  - cpp/include/mlcpp/pca.hpp
 demo: demo.py
 widgets:
   - pca

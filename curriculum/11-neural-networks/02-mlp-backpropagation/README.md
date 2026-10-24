@@ -22,6 +22,7 @@ code:
   - mlscratch/neural_network.py:Sequential
   - mlscratch/neural_network.py:gradient_check
   - mlscratch/neural_network.py:MLPClassifier
+  - cpp/include/mlcpp/neural_network.hpp
 demo: demo.py
 widgets:
   - neural-network
