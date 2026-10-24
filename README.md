@@ -1,5 +1,7 @@
 # Machine Learning 1 → 100
 
+[![CI](https://github.com/KushalranaAI/machine-learning-1-to-100/actions/workflows/ci.yml/badge.svg)](https://github.com/KushalranaAI/machine-learning-1-to-100/actions/workflows/ci.yml)
+
 **All of classical machine learning in one repository: from collecting raw data to gradient boosting, neural
 networks and reinforcement learning. Every algorithm is derived mathematically and implemented from scratch.
 It ships with an interactive local web app and 5 end-to-end projects on real datasets.**
@@ -148,6 +150,12 @@ tests/            pytest suite
 1. Follow the parts in order (the roadmap page shows your progress), or jump in via the **Algorithm map**.
 2. For each lesson: read it, play with its widget, run the demo, then open the **Code** tab and trace the maths in the implementation.
 3. After parts 06, 09 and 11, do the matching projects. Then do their "Extend it" exercises on a dataset you care about.
+
+## Contributing and security
+
+Anyone can fork and run this, and improvements are welcome through pull requests: see [CONTRIBUTING.md](CONTRIBUTING.md).
+`main` is protected: changes need a reviewed pull request and passing `python`, `web` and `cpp` checks
+([CI](.github/workflows/ci.yml)). To report a vulnerability privately, see [SECURITY.md](SECURITY.md). Never commit API keys or tokens.
 
 ## License
 MIT. See [LICENSE](LICENSE). The datasets keep their original licenses (listed in each project's README).

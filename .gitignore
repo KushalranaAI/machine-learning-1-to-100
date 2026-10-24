@@ -179,3 +179,10 @@ cython_debug/
 outputs/
 cpp/build/
 projects/*/data/
+
+# Secrets: never commit keys or tokens
+.env.*
+!.env.example
+kaggle.json
+*.pem
+*.key

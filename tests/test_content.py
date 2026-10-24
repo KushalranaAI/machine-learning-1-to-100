@@ -45,3 +45,16 @@ def test_project_frontmatter(path):
     for step in meta["steps"]:
         if step.get("script"):
             assert (path.parent / step["script"].split()[0]).exists(), f"{path}: missing script {step['script']}"
+
+
+STRING_LISTS = ("use_cases", "where_used", "prerequisites", "pros", "cons", "skills", "lessons", "algorithms", "widgets", "code")
+
+
+@pytest.mark.parametrize("path", LESSONS + PROJECTS, ids=lambda p: f"{p.parent.parent.name}/{p.parent.name}")
+def test_frontmatter_lists_are_plain_text(path):
+    """An unquoted item like `- A fair protocol: train / test` is parsed by YAML as a mapping and shows up as
+    "[object Object]" in the web app. Quote such items."""
+    meta = frontmatter(path)
+    for key in STRING_LISTS:
+        for item in meta.get(key) or []:
+            assert isinstance(item, str), f"{path}: an item of '{key}' is not plain text ({item!r}); put it in quotes"
