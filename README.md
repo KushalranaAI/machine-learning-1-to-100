@@ -40,6 +40,24 @@ builds the web app once, starts it at **http://127.0.0.1:3000** and opens your b
 
 The app only listens on `127.0.0.1`, because its Run buttons execute the course scripts on your machine.
 
+### Using the app
+
+- **Guided lessons.** Each lesson is a short journey: Overview → Learn → Workflow → Interact → Code → Run → Practice → Notes.
+  Mark lessons complete, keep notes, and pick up where you left off from the dashboard. **My progress** shows your streak,
+  activity and milestones, and can export or import a backup.
+- **Search anything** with `Ctrl K` (`Cmd K` on macOS): lessons, algorithms, projects.
+- **AI tutor (optional, bring your own).** Press `Ctrl /` or **Ask AI**. Highlight any text, press **Explain** on a code block,
+  or use **Ask about this** on a visual, an algorithm or a project step. The tutor sees the page and step you are on, and can
+  write a self-check quiz from the lesson.
+  - **Local and private:** [Ollama](https://ollama.com) (`ollama pull llama3.2`), LM Studio, llama.cpp or any OpenAI-compatible server.
+  - **Cloud:** Claude, OpenAI or Gemini with your own API key.
+  - **Azure OpenAI** (your endpoint, deployment name and API key) is offered only when the app runs on `localhost` / `127.0.0.1`,
+    and is hidden on any other address, for example a hosted copy of the app.
+  - **Your keys stay yours.** Settings, keys and chats are stored only in your browser (`localStorage`, or `sessionStorage` if you
+    choose "this session only") and are sent straight from the browser to the provider you pick. The app's server never sees them
+    and nothing is written to this repository. Don't save keys on a shared computer.
+  - For LM Studio, enable CORS in its server settings. Ollama works out of the box on `localhost`.
+
 **Without the web app:** everything is plain Python. Run `pip install -r requirements.txt && pip install -e .`, then
 `python curriculum/07-regression/01-linear-regression/demo.py`. Figures are saved to `outputs/` next to the script.
 

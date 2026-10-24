@@ -1,5 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import type { PageContext } from "@/lib/ai/prompts";
+import { useResolvedTheme } from "@/lib/theme";
+import { usePageContext } from "./ai/AIProvider";
+import AskButton from "./ai/AskButton";
+import Icon from "./ui/Icon";
 import { WIDGETS } from "./widgets";
 
 export const LAB: { id: string; title: string; topic: string }[] = [
@@ -23,18 +28,62 @@ export const LAB: { id: string; title: string; topic: string }[] = [
 
 export default function Lab() {
   const [id, setId] = useState(LAB[0].id);
+  const [q, setQ] = useState("");
+  const theme = useResolvedTheme();
   const Widget = WIDGETS[id];
+  const current = LAB.find((w) => w.id === id)!;
+
+  useEffect(() => {
+    const h = window.location.hash.slice(1);
+    if (LAB.some((w) => w.id === h)) setId(h);
+  }, []);
+  const choose = (next: string) => {
+    setId(next);
+    history.replaceState(null, "", `#${next}`);
+  };
+
+  const context = useMemo<PageContext>(
+    () => ({
+      key: `lab:${id}`,
+      kind: "lab",
+      title: current.title,
+      focus: `the interactive visual “${current.title}” (${current.topic})`,
+      text: `Interactive lab visual: ${current.title}\nTopic: ${current.topic}\nThe learner can drag points and move sliders; the visual runs a real implementation of the algorithm in the browser.`,
+    }),
+    [id, current],
+  );
+  usePageContext(context);
+
+  const shown = LAB.filter((w) => `${w.title} ${w.topic}`.toLowerCase().includes(q.toLowerCase()));
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "minmax(200px, 240px) 1fr", gap: 18, alignItems: "start" }}>
-      <div className="card" style={{ padding: 10, position: "sticky", top: 12 }}>
-        {LAB.map((w, i) => (
-          <div key={w.id}>
-            {(i === 0 || LAB[i - 1].topic !== w.topic) && <div className="stat" style={{ margin: "8px 6px 2px" }}>{w.topic}</div>}
-            <button className={`tab ${id === w.id ? "active" : ""}`} style={{ display: "block", width: "100%", textAlign: "left", borderBottom: "none", padding: "5px 8px" }} onClick={() => setId(w.id)}>{w.title}</button>
+    <div className="lab">
+      <aside className="lab-nav card" aria-label="Visuals">
+        <label className="lab-search">
+          <Icon name="search" size={15} />
+          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Filter visuals" aria-label="Filter visuals" />
+        </label>
+        <div className="lab-list">
+          {shown.map((w, i) => (
+            <div key={w.id}>
+              {(i === 0 || shown[i - 1].topic !== w.topic) && <div className="lab-topic">{w.topic}</div>}
+              <button type="button" className={`lab-item ${id === w.id ? "active" : ""}`} aria-current={id === w.id ? "true" : undefined} onClick={() => choose(w.id)}>
+                {w.title}
+              </button>
+            </div>
+          ))}
+          {shown.length === 0 && <p className="muted small" style={{ padding: 8 }}>No visual matches.</p>}
+        </div>
+      </aside>
+      <section className="lab-stage" style={{ minWidth: 0 }}>
+        <header className="widget-head">
+          <div>
+            <span className="muted small">{current.topic}</span>
+            <h2>{current.title}</h2>
           </div>
-        ))}
-      </div>
-      <div style={{ minWidth: 0 }}><Widget /></div>
+          <AskButton label="Ask about this" prompt={`Explain what the interactive visual “${current.title}” demonstrates, and suggest three experiments to try with its controls, with what I should notice each time.`} />
+        </header>
+        {Widget ? <Widget key={`${id}-${theme}`} /> : null}
+      </section>
     </div>
   );
 }

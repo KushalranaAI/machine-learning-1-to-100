@@ -1,5 +1,6 @@
 // Shared helpers for the in-browser visualisers: seeded randomness, toy datasets and canvas plotting.
 import { useEffect, useRef } from "react";
+import { isDark } from "@/lib/theme";
 
 export type Pt = [number, number];
 
@@ -78,11 +79,11 @@ export class Plane {
 }
 
 export function textColor() {
-  return typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches ? "#e5e9f0" : "#1d2330";
+  return isDark() ? "#e5e9f0" : "#1d2330";
 }
 
 export function gridColor() {
-  return typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+  return isDark() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
 }
 
 export function drawGrid(ctx: CanvasRenderingContext2D, P: Plane, step = 0.5) {

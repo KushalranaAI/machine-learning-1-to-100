@@ -1,70 +1,127 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { useProgress } from "./progress";
+import { useEffect, useRef } from "react";
+import { type Nav, lessonId, projectId } from "@/lib/nav";
+import { useProgress } from "@/lib/progress";
+import Icon, { type IconName, sectionIcon } from "./ui/Icon";
+import Ring from "./ui/Ring";
 
-type Props = {
-  sections: { slug: string; title: string; icon: string; lessons: { slug: string; title: string }[] }[];
-  projects: { slug: string; title: string }[];
-};
+const LINKS: { href: string; label: string; icon: IconName }[] = [
+  { href: "/", label: "Dashboard", icon: "home" },
+  { href: "/progress", label: "My progress", icon: "trophy" },
+  { href: "/lab", label: "Interactive lab", icon: "flask" },
+  { href: "/map", label: "Algorithm map", icon: "map" },
+  { href: "/projects", label: "Projects", icon: "rocket" },
+];
 
-export default function Sidebar({ sections, projects }: Props) {
+export default function Sidebar({ nav, open, onNavigate }: { nav: Nav; open: boolean; onNavigate: () => void }) {
   const pathname = usePathname();
   const progress = useProgress();
-  const [open, setOpen] = useState(false);
+  const activeRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    activeRef.current?.scrollIntoView({ block: "nearest" });
+  }, [pathname]);
+
+  const total = nav.sections.reduce((n, s) => n + s.lessons.length, 0);
+  const done = nav.sections.reduce((n, s) => n + s.lessons.filter((l) => progress.done[lessonId(s.slug, l.slug)]).length, 0);
+
   return (
-    <>
-      <button className="btn menu-btn" onClick={() => setOpen(!open)} aria-label="Toggle navigation">☰</button>
-      <nav className={`sidebar ${open ? "open" : ""}`} onClick={(e) => (e.target as HTMLElement).tagName === "A" && setOpen(false)}>
-        <Link href="/" className="brand">
-          ML 1 → 100<small>Machine learning from the math up</small>
-        </Link>
-        <div className="topnav">
-          <Link href="/">Roadmap</Link>
-          <Link href="/lab">Interactive lab</Link>
-          <Link href="/projects">Projects</Link>
-          <Link href="/map">Algorithm map</Link>
-        </div>
-        {sections.map((s) => {
-          const inSection = pathname.startsWith(`/learn/${s.slug}`);
-          const done = s.lessons.filter((l) => progress[`${s.slug}/${l.slug}`]).length;
+    <nav className={`sidebar ${open ? "open" : ""}`} aria-label="Course navigation" onClick={(e) => (e.target as HTMLElement).closest("a") && onNavigate()}>
+      <Link href="/" className="brand">
+        <span className="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="30" height="30">
+            <rect width="32" height="32" rx="9" fill="var(--brand-solid)" />
+            <path d="M7 22 12 14l5 5 8-11" fill="none" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+            <circle cx="25" cy="8" r="2.2" fill="#fff" />
+          </svg>
+        </span>
+        <span>
+          <b>ML 1 → 100</b>
+          <small>Learn it from the math up</small>
+        </span>
+      </Link>
+
+      <ul className="side-links">
+        {LINKS.map((l) => {
+          const active = l.href === "/" ? pathname === "/" : pathname.startsWith(l.href);
           return (
-            <details key={s.slug} className="nav-section" open={inSection}>
-              <summary>
-                <span>{s.icon}</span>
-                <span style={{ flex: 1 }}>{s.title}</span>
-                <span className="muted" style={{ fontSize: "0.75rem", fontWeight: 500 }}>{done}/{s.lessons.length}</span>
-              </summary>
-              <ul>
-                {s.lessons.map((l) => {
-                  const href = `/learn/${s.slug}/${l.slug}`;
-                  return (
-                    <li key={l.slug}>
-                      <Link href={href} className={pathname === href ? "active" : ""}>
-                        <span className={`done-dot ${progress[`${s.slug}/${l.slug}`] ? "done" : ""}`} />
-                        {l.title}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </details>
+            <li key={l.href}>
+              <Link href={l.href} className={active ? "active" : ""} aria-current={active ? "page" : undefined}>
+                <Icon name={l.icon} /> {l.label}
+              </Link>
+            </li>
           );
         })}
-        <details className="nav-section" open={pathname.startsWith("/projects")}>
-          <summary><span>🚀</span><span style={{ flex: 1 }}>Projects</span></summary>
-          <ul>
-            {projects.map((p) => (
+      </ul>
+
+      <div className="side-heading">
+        <span>Curriculum</span>
+        <span className="muted">{done}/{total}</span>
+      </div>
+
+      {nav.sections.map((s) => {
+        const inSection = pathname.startsWith(`/learn/${s.slug}`);
+        const sectionDone = s.lessons.filter((l) => progress.done[lessonId(s.slug, l.slug)]).length;
+        return (
+          <details key={s.slug} className="nav-section" open={inSection || undefined}>
+            <summary>
+              <Ring value={s.lessons.length ? sectionDone / s.lessons.length : 0} size={26} stroke={3} label={`${sectionDone} of ${s.lessons.length} lessons done`}>
+                <Icon name={sectionIcon(s.slug)} size={12} />
+              </Ring>
+              <span className="nav-title">{s.title}</span>
+              <span className="muted count">{sectionDone}/{s.lessons.length}</span>
+              <Icon name="chevron-down" size={14} className="caret" />
+            </summary>
+            <ul>
+              {s.lessons.map((l) => {
+                const id = lessonId(s.slug, l.slug);
+                const href = `/learn/${s.slug}/${l.slug}`;
+                const active = pathname === href;
+                const state = progress.done[id] ? "done" : progress.visited[id] ? "started" : "new";
+                return (
+                  <li key={l.slug}>
+                    <Link href={href} ref={active ? activeRef : undefined} className={active ? "active" : ""} aria-current={active ? "page" : undefined}>
+                      <Icon
+                        name={state === "done" ? "circle-check" : state === "started" ? "circle-half" : "circle"}
+                        size={15}
+                        className={`status ${state}`}
+                        label={state === "done" ? "Completed" : state === "started" ? "In progress" : undefined}
+                      />
+                      <span>{l.title}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </details>
+        );
+      })}
+
+      <details className="nav-section" open={pathname.startsWith("/projects") || undefined}>
+        <summary>
+          <span className="ring-icon"><Icon name="rocket" size={14} /></span>
+          <span className="nav-title">Projects</span>
+          <span className="muted count">{nav.projects.filter((p) => progress.done[projectId(p.slug)]).length}/{nav.projects.length}</span>
+          <Icon name="chevron-down" size={14} className="caret" />
+        </summary>
+        <ul>
+          {nav.projects.map((p) => {
+            const href = `/projects/${p.slug}`;
+            const active = pathname === href;
+            const state = progress.done[projectId(p.slug)] ? "done" : progress.visited[projectId(p.slug)] ? "started" : "new";
+            return (
               <li key={p.slug}>
-                <Link href={`/projects/${p.slug}`} className={pathname === `/projects/${p.slug}` ? "active" : ""}>
-                  <span className="done-dot" />{p.title}
+                <Link href={href} ref={active ? activeRef : undefined} className={active ? "active" : ""} aria-current={active ? "page" : undefined}>
+                  <Icon name={state === "done" ? "circle-check" : state === "started" ? "circle-half" : "circle"} size={15} className={`status ${state}`} />
+                  <span>{p.title}</span>
                 </Link>
               </li>
-            ))}
-          </ul>
-        </details>
-      </nav>
-    </>
+            );
+          })}
+        </ul>
+      </details>
+    </nav>
   );
 }

@@ -1,31 +1,48 @@
-import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import AskButton from "@/components/ai/AskButton";
 import Markdown from "@/components/Markdown";
+import SectionLessons from "@/components/SectionLessons";
+import SectionProgress from "@/components/progress/SectionProgress";
+import Icon, { sectionIcon } from "@/components/ui/Icon";
 import { getSectionBody, getSections } from "@/lib/content";
+
+export async function generateMetadata({ params }: { params: Promise<{ section: string }> }): Promise<Metadata> {
+  const { section } = await params;
+  return { title: getSections().find((x) => x.slug === section)?.title ?? "Part" };
+}
 
 export default async function SectionPage({ params }: { params: Promise<{ section: string }> }) {
   const { section } = await params;
   const s = getSections().find((x) => x.slug === section);
   if (!s) notFound();
+  const body = getSectionBody(section);
+  const nav = { slug: s.slug, title: s.title, order: s.order, description: s.description, lessons: s.lessons.map((l) => ({ slug: l.slug, title: l.title, summary: l.summary, minutes: l.minutes, level: l.level })) };
   return (
-    <>
-      <div className="stat">Part {s.order}</div>
-      <h1>{s.icon} {s.title}</h1>
-      <p className="lead">{s.description}</p>
-      <Markdown>{getSectionBody(section)}</Markdown>
-      <h2>Lessons</h2>
-      <div className="grid">
-        {s.lessons.map((l, i) => (
-          <Link key={l.slug} href={`/learn/${s.slug}/${l.slug}`} className="card" style={{ color: "inherit", textDecoration: "none" }}>
-            <div className="stat">{s.order}.{i + 1} · {l.minutes} min</div>
-            <h3 style={{ margin: "4px 0 6px" }}>{l.title}</h3>
-            <p className="muted" style={{ margin: "0 0 8px", fontSize: "0.9rem" }}>{l.summary}</p>
-            <span className={`pill ${l.level}`}>{l.level}</span>
-            {l.widgets.length > 0 && <span className="pill accent">interactive</span>}
-            {l.demo && <span className="pill">runnable demo</span>}
-          </Link>
-        ))}
-      </div>
-    </>
+    <article>
+      <header className="page-head with-ring">
+        <div>
+          <div className="eyebrow"><Icon name={sectionIcon(s.slug)} size={14} /> Part {s.order}</div>
+          <h1>{s.title}</h1>
+          <p className="lead">{s.description}</p>
+          <div className="meta-row">
+            <span className="pill">{s.lessons.length} lessons</span>
+            <span className="pill"><Icon name="clock" size={13} /> {s.lessons.reduce((n, l) => n + l.minutes, 0)} min</span>
+            <AskButton variant="ghost" label="What will I learn here?" prompt={`I'm about to start the part "${s.title}" of this course. In a few sentences, what will I be able to do after it, and how should I approach it?`} />
+          </div>
+        </div>
+        <SectionProgress section={nav} />
+      </header>
+
+      <h2 className="section-title">Lessons</h2>
+      <SectionLessons section={nav} />
+
+      {body.trim() && (
+        <>
+          <h2 className="section-title">About this part</h2>
+          <Markdown>{body}</Markdown>
+        </>
+      )}
+    </article>
   );
 }

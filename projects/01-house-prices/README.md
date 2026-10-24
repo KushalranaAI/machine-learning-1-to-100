@@ -5,7 +5,7 @@ summary: "Predict the median house value of 20,000 Californian districts: data c
 problem: |
   A property platform wants an automated valuation for every district: given census facts like income, house age,
   rooms, population and location, predict the **median house value**. This is a **regression** problem. We measure
-  error in dollars (RMSE, MAE) and in relative terms, because a $40k miss matters more on a $100k house than on a $450k one.
+  error in dollars (RMSE, MAE) and in relative terms, because a \$40k miss matters more on a \$100k house than on a \$450k one.
 dataset:
   name: "California Housing Prices (1990 census)"
   source: "Kaggle · camnugent/california-housing-prices (from Pace & Barry, 1997)"
@@ -16,7 +16,7 @@ dataset:
 algorithms: [Linear Regression, Ridge, kNN, Decision Tree, Random Forest, Gradient Boosting]
 skills:
   - Finding and handling missing values (median imputation fitted on train only)
-  - Spotting a censored target (values capped at $500,001)
+  - Spotting a censored target (values capped at \$500,001)
   - Ratio features, distance features, log transforms of skewed counts
   - One-hot encoding a categorical column
   - Train / validation / test protocol and why the test set is touched once
@@ -45,8 +45,8 @@ steps:
   - title: "2 · Explore: missing values, the price cap, skew and correlations"
     script: explore.py
     description: |
-      You'll find **207 missing `total_bedrooms`**. You'll also find that **4.7% of districts sit exactly at $500,001**,
-      a censoring cap: the true value is "≥ $500k", so we drop those rows instead of teaching the model a false ceiling.
+      You'll find **207 missing `total_bedrooms`**. You'll also find that **4.7% of districts sit exactly at \$500,001**,
+      a censoring cap: the true value is "≥ \$500k", so we drop those rows instead of teaching the model a false ceiling.
       Count columns are heavily right-skewed (skew ≈ 4-5), so we log-transform them. `median_income` is by far the
       strongest single predictor (r = 0.64).
   - title: "3 · Feature engineering (features.py)"
@@ -89,10 +89,10 @@ workflow: |
 | Random forest (40 trees) | 0.216 | 45,009 | 0.83 |
 | **Gradient boosting (≈ 390 rounds, depth 5)** | **0.206** | **42,255** | **0.85** |
 
-**Test set (touched once):** RMSE $41,981 · MAE $27,448 · R² 0.837 · median error **10.7%** of the true price.
+**Test set (touched once):** RMSE \$41,981 · MAE \$27,448 · R² 0.837 · median error **10.7%** of the true price.
 
 ## What to notice
-- **The baseline matters.** Without it, "RMSE = $42k" means nothing. The baseline is $101k.
+- **The baseline matters.** Without it, "RMSE = \$42k" means nothing. The baseline is \$101k.
 - **Multicollinearity.** `total_rooms`, `total_bedrooms`, `population` and `households` are all "district size"
   (pairwise r = 0.87-0.97 after the log). OLS gives them large opposite-signed weights (households +2.0, population −1.3), and its CV R²
   swings ±0.10 between folds. Ridge shrinks them to a stable compromise (CV R² ± 0.014). Same predictions, very different

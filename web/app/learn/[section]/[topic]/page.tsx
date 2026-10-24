@@ -1,8 +1,26 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import AskButton from "@/components/ai/AskButton";
 import LessonView from "@/components/LessonView";
 import Markdown from "@/components/Markdown";
+import LessonStatus from "@/components/progress/LessonStatus";
+import Icon, { type IconName, sectionIcon } from "@/components/ui/Icon";
 import { flatLessons, getCode, getLesson, getProjects, getSections } from "@/lib/content";
+
+export async function generateMetadata({ params }: { params: Promise<{ section: string; topic: string }> }): Promise<Metadata> {
+  const { section, topic } = await params;
+  return { title: getLesson(section, topic)?.title ?? "Lesson" };
+}
+
+function OverviewCard({ icon, title, wide, children }: { icon: IconName; title: string; wide?: boolean; children: React.ReactNode }) {
+  return (
+    <section className={`card overview-card ${wide ? "wide" : ""}`}>
+      <h4><Icon name={icon} size={16} /> {title}</h4>
+      {children}
+    </section>
+  );
+}
 
 export default async function LessonPage({ params }: { params: Promise<{ section: string; topic: string }> }) {
   const { section, topic } = await params;
@@ -15,7 +33,7 @@ export default async function LessonPage({ params }: { params: Promise<{ section
   const next = all[i + 1];
   const projects = getProjects();
   const code = lesson.code.map(getCode).filter((c) => c !== null);
-  const demo = lesson.demo ? `${lesson.dir}/${lesson.demo}` : null;
+  const demo = lesson.demo ? `${lesson.dir.replace(/\\/g, "/")}/${lesson.demo}` : null;
   const lessonTitle = (id: string) => {
     const [s, t] = id.split("/");
     return all.find((l) => l.section === s && l.slug === t)?.title ?? id;
@@ -25,59 +43,93 @@ export default async function LessonPage({ params }: { params: Promise<{ section
     return p ? <Link href={`/projects/${p.slug}`}>{p.title}</Link> : <Markdown>{ref}</Markdown>;
   };
 
-  return (
+  const overview = (
     <>
-      <div className="stat">
-        <Link href={`/learn/${section}`}>{sectionInfo.icon} {sectionInfo.title}</Link> · {lesson.minutes} min ·{" "}
-        <span className={`pill ${lesson.level}`}>{lesson.level}</span>
-      </div>
-      <h1>{lesson.title}</h1>
-      <p className="lead">{lesson.summary}</p>
+      {lesson.why && (
+        <OverviewCard icon="lightbulb" title="Why you need it" wide>
+          <Markdown>{lesson.why}</Markdown>
+        </OverviewCard>
+      )}
+      {lesson.background && (
+        <OverviewCard icon="book" title="Where it comes from">
+          <Markdown>{lesson.background}</Markdown>
+        </OverviewCard>
+      )}
+      {lesson.use_cases.length > 0 && (
+        <OverviewCard icon="target" title="Real-world use cases">
+          <ul>{lesson.use_cases.map((u) => <li key={u}>{u}</li>)}</ul>
+        </OverviewCard>
+      )}
+      {(lesson.pros.length > 0 || lesson.cons.length > 0) && (
+        <OverviewCard icon="layers" title="Strengths & weaknesses">
+          <ul className="proscons">
+            {lesson.pros.map((p) => <li key={p} className="pro"><Icon name="check" size={15} label="Strength" /> {p}</li>)}
+            {lesson.cons.map((c) => <li key={c} className="con"><Icon name="alert" size={15} label="Weakness" /> {c}</li>)}
+          </ul>
+        </OverviewCard>
+      )}
+      {lesson.prerequisites.length > 0 && (
+        <OverviewCard icon="route" title="Before this lesson">
+          <ul>{lesson.prerequisites.map((p) => <li key={p}><Link href={`/learn/${p}`}>{lessonTitle(p)}</Link></li>)}</ul>
+        </OverviewCard>
+      )}
+      {lesson.where_used.length > 0 && (
+        <OverviewCard icon="rocket" title="Used in this course">
+          <ul>{lesson.where_used.map((u) => <li key={u}>{usedIn(u)}</li>)}</ul>
+        </OverviewCard>
+      )}
+    </>
+  );
 
-      <div className="info-grid">
-        {lesson.why && (
-          <div className="card"><h4>Why you need it</h4><Markdown>{lesson.why}</Markdown></div>
-        )}
-        {lesson.background && (
-          <div className="card"><h4>Background</h4><Markdown>{lesson.background}</Markdown></div>
-        )}
-        {lesson.use_cases.length > 0 && (
-          <div className="card"><h4>Real-world use cases</h4><ul>{lesson.use_cases.map((u) => <li key={u}>{u}</li>)}</ul></div>
-        )}
-        {lesson.where_used.length > 0 && (
-          <div className="card"><h4>Where it&apos;s used in this course</h4><ul>{lesson.where_used.map((u) => <li key={u}>{usedIn(u)}</li>)}</ul></div>
-        )}
-        {(lesson.pros.length > 0 || lesson.cons.length > 0) && (
-          <div className="card">
-            <h4>Strengths &amp; weaknesses</h4>
-            <ul>
-              {lesson.pros.map((p) => <li key={p}>✅ {p}</li>)}
-              {lesson.cons.map((c) => <li key={c}>⚠️ {c}</li>)}
-            </ul>
-          </div>
-        )}
-        {lesson.prerequisites.length > 0 && (
-          <div className="card">
-            <h4>Before this lesson</h4>
-            <ul>{lesson.prerequisites.map((p) => <li key={p}><Link href={`/learn/${p}`}>{lessonTitle(p)}</Link></li>)}</ul>
-          </div>
-        )}
-      </div>
+  const id = `${section}/${topic}`;
+  return (
+    <article>
+      <header className="page-head">
+        <div className="eyebrow">
+          <Link href={`/learn/${section}`}><Icon name={sectionIcon(section)} size={14} /> Part {sectionInfo.order} · {sectionInfo.title}</Link>
+        </div>
+        <h1>{lesson.title}</h1>
+        <p className="lead">{lesson.summary}</p>
+        <div className="meta-row">
+          <span className={`pill ${lesson.level}`}>{lesson.level}</span>
+          <span className="pill"><Icon name="clock" size={13} /> {lesson.minutes} min</span>
+          {lesson.widgets.length > 0 && <span className="pill accent"><Icon name="sliders" size={13} /> {lesson.widgets.length} interactive</span>}
+          {lesson.demo && <span className="pill"><Icon name="play" size={13} /> runnable demo</span>}
+          <LessonStatus id={id} />
+          <span className="spacer" />
+          <AskButton variant="ghost" label="Quick summary" prompt="Give me a 5-line summary of this lesson: the problem it solves, the core idea, the key equation or step, when to use it, and one pitfall." />
+        </div>
+      </header>
 
-      <LessonView id={`${section}/${topic}`} body={lesson.body} workflow={lesson.workflow} widgets={lesson.widgets} code={code} demo={demo} />
+      <LessonView
+        id={id}
+        href={`/learn/${section}/${topic}`}
+        title={lesson.title}
+        sectionTitle={sectionInfo.title}
+        summary={lesson.summary}
+        overview={overview}
+        body={lesson.body}
+        workflow={lesson.workflow}
+        widgets={lesson.widgets}
+        code={code}
+        demo={demo}
+        next={next ? { href: `/learn/${next.section}/${next.slug}`, title: next.title } : null}
+      />
 
-      <div className="prevnext">
+      <nav className="prevnext" aria-label="Previous and next lesson">
         {prev ? (
-          <Link href={`/learn/${prev.section}/${prev.slug}`} className="card" style={{ color: "inherit", textDecoration: "none" }}>
-            <div className="stat">← Previous</div>{prev.title}
+          <Link href={`/learn/${prev.section}/${prev.slug}`} className="card link-card">
+            <span className="muted small"><Icon name="arrow-left" size={14} /> Previous</span>
+            <b>{prev.title}</b>
           </Link>
         ) : <span />}
         {next ? (
-          <Link href={`/learn/${next.section}/${next.slug}`} className="card" style={{ color: "inherit", textDecoration: "none", textAlign: "right" }}>
-            <div className="stat">Next →</div>{next.title}
+          <Link href={`/learn/${next.section}/${next.slug}`} className="card link-card right">
+            <span className="muted small">Next <Icon name="arrow-right" size={14} /></span>
+            <b>{next.title}</b>
           </Link>
         ) : <span />}
-      </div>
-    </>
+      </nav>
+    </article>
   );
 }

@@ -1,5 +1,9 @@
+import type { Metadata } from "next";
 import AlgorithmMap from "@/components/AlgorithmMap";
 import Mermaid from "@/components/Mermaid";
+import Icon from "@/components/ui/Icon";
+
+export const metadata: Metadata = { title: "Algorithm map" };
 
 const CHOOSER = `flowchart LR
   S([Start: what do you have?]) --> L{Labels?}
@@ -27,20 +31,21 @@ const CHOOSER = `flowchart LR
 
 export default function MapPage() {
   return (
-    <>
-      <h1>🗺️ Algorithm map</h1>
-      <p className="lead">
-        Which algorithm should you use? Start with the decision chart, then filter the comparison table by your constraints.
-        Every row links to the lesson with the full derivation and the from-scratch code.
-      </p>
-      <h2>Decision chart</h2>
+    <article>
+      <header className="page-head">
+        <div className="eyebrow"><Icon name="map" size={14} /> Decide</div>
+        <h1>Algorithm map</h1>
+        <p className="lead">
+          Which algorithm should you use? Start with the decision chart, then filter by your constraints. Every card links to the lesson with the full derivation and the from-scratch code.
+        </p>
+      </header>
+      <h2 className="section-title">Decision chart</h2>
       <Mermaid chart={CHOOSER} />
       <p className="muted">
-        Rules of thumb, not laws: always compare against a simple baseline with cross-validation (lesson 06). On tabular data,
-        gradient boosting is usually the strongest single model, and logistic/linear regression is the one you can explain.
+        Rules of thumb, not laws: always compare against a simple baseline with cross-validation (lesson 06). On tabular data, gradient boosting is usually the strongest single model, and logistic/linear regression is the one you can explain.
       </p>
-      <h2>Compare every algorithm</h2>
+      <h2 className="section-title">Compare every algorithm</h2>
       <AlgorithmMap />
-    </>
+    </article>
   );
 }

@@ -17,7 +17,7 @@ algorithms: [PCA, Gaussian Naive Bayes, Softmax Regression, Random Forest, kNN, 
 skills:
   - Working with image tensors (n, channels, height, width)
   - PCA for compression and visualisation
-  - A fair protocol: train / validation / official test set
+  - "A fair protocol: train / validation / official test set"
   - Mini-batch training, Adam, dropout, learning curves
   - Writing a training loop by hand (forward → loss → backward → step)
   - Keeping the best validation weights (early stopping)

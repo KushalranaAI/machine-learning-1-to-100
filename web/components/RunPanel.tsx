@@ -1,5 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
+import AskButton from "./ai/AskButton";
+import Icon from "./ui/Icon";
 
 type Line = { kind: "out" | "err"; text: string };
 
@@ -46,18 +48,26 @@ export default function RunPanel({ script, args = [], label = "Run" }: { script:
     }
   }
 
+  const output = lines.map((l) => l.text).join("");
   return (
-    <div>
-      <div className="controls">
-        <button className="btn primary" onClick={run} disabled={status === "running"}>
-          {status === "running" ? "Running…" : `▶ ${label}`}
+    <div className="run-panel">
+      <div className="run-bar">
+        <button type="button" className="btn primary" onClick={run} disabled={status === "running"}>
+          <Icon name="play" size={16} /> {status === "running" ? "Running…" : label}
         </button>
-        <code>python {script.split("/").pop()} {args.join(" ")}</code>
-        {status === "ok" && <span style={{ color: "var(--good)" }}>✓ finished</span>}
-        {status === "failed" && <span style={{ color: "var(--bad)" }}>✗ failed - see output</span>}
+        <code className="run-cmd">python {script.split("/").pop()} {args.join(" ")}</code>
+        {status === "ok" && <span className="status-text good"><Icon name="circle-check" size={16} /> finished</span>}
+        {status === "failed" && <span className="status-text bad"><Icon name="alert" size={16} /> failed - see output</span>}
+        {(status === "ok" || status === "failed") && output && (
+          <AskButton
+            label={status === "failed" ? "Help me fix this" : "Explain the output"}
+            quote={output.slice(-4000)}
+            prompt={status === "failed" ? `This script (${script.split("/").pop()}) failed. What went wrong and how do I fix it?` : `Explain what this output of ${script.split("/").pop()} means and what I should learn from it.`}
+          />
+        )}
       </div>
       {lines.length > 0 && (
-        <div className="terminal" ref={termRef}>
+        <div className="terminal" ref={termRef} tabIndex={0} aria-label="Script output">
           {lines.map((l, i) => <span key={i} className={l.kind === "err" ? "err" : ""}>{l.text}</span>)}
         </div>
       )}
