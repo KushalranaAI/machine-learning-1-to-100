@@ -149,6 +149,7 @@ class MultiArmedBandit:
     def run(self, strategy="ucb", steps=1000, eps=0.1, c=2.0):
         k = len(self.means)
         counts, values, rewards = np.zeros(k), np.zeros(k), []
+        self.actions_ = []
         for t in range(1, steps + 1):
             if strategy == "greedy" or (strategy == "eps" and self.rng.random() >= eps):
                 a = int(np.argmax(values))
@@ -159,6 +160,7 @@ class MultiArmedBandit:
             else:                           # UCB1: optimism in the face of uncertainty
                 a = int(np.argmax(values + c * np.sqrt(np.log(t) / np.maximum(counts, 1e-12)))) if counts.min() > 0 else int(np.argmin(counts))
             r = self.pull(a)
+            self.actions_.append(a)
             counts[a] += 1
             values[a] += (r - values[a]) / counts[a]        # incremental mean
             rewards.append(r)
