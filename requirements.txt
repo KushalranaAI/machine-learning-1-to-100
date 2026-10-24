@@ -1,0 +1,19 @@
+# The from-scratch library itself only needs numpy.
+numpy>=1.26
+
+# Data handling, plots and the lessons' demos
+pandas>=2.0
+matplotlib>=3.8
+scipy>=1.11
+
+# Data collection lessons
+requests>=2.31
+beautifulsoup4>=4.12
+
+# Only used to CHECK our implementations (tests and "compare with scikit-learn" sections)
+scikit-learn>=1.4
+pytest>=8.0
+
+# Optional: Kaggle CLI for downloading project datasets with your API token
+kaggle>=1.6
+pyyaml>=6.0

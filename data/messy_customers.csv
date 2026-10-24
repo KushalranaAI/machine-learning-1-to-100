@@ -1,0 +1,626 @@
+customer_id,name,signup_date,city,plan,age,annual_income,height_cm,monthly_visits,churned
+1585,Customer 585,2024-04-12,lima ,Enterprise,35,"$50,800",177.7,4.0,0
+1369,Customer 369,2023-11-26,mumbai,premium,42,"$35,800",162.7,9.0,Y
+1438,Customer 438,14/03/2022,Berlin,Basic,27,54000.0,179.6,6.0,N
+1465,Customer 465,19/05/2024,new york,enterprise,46,92600.0,169.7,5.0,no
+1560,  Customer 560 ,28/04/2023,Berlin,Premium ,38,36700.0,167.6,5.0,no
+1447,Customer 447,10/05/2024,Bombay,Premium ,15,48600.0,182.6,6.0,Y
+1134,Customer 134,2023-12-17,N/A,prem,46,"$33,500",162.6,11.0,no
+1536,Customer 536,"Feb 15, 2023",Mumbai,enterprise,35,35200.0,163.5,4.0,no
+1551,Customer 551,21/12/2022,lima ,prem,35,44600.0,158.0,3.0,no
+1356,Customer 356,17/05/2022,unknown,basic,56,55200.0,63.9,,no
+1067,Customer 67,"Nov 30, 2022",New York,enterprise,34,"$57,000",65.5,4.0,no
+1068,Customer 68,"Mar 10, 2022",berlin,premium,36,"$34,100",161.9,6.0,no
+1172,Customer 172,2023-11-26,mumbai,BASIC,28,39900.0,194.0,6.0,N
+1394,Customer 394,10/10/2023,Mumbai,,37,"$88,900",68.6,8.0,Y
+1371,  Customer 371 ,19/08/2023,New York,Premium ,?,"$72,100",145.7,7.0,N
+1322,  Customer 322 ,08/07/2023,New York,prem,21,133100.0,68.3,6.0,N
+1030,Customer 30,"Feb 10, 2023",Lima,basic,43,19800.0,178.9,6.0,1
+1244,Customer 244,2023-07-20,NYC,prem,54,"$42,800",175.5,4.0,no
+1558,Customer 558,15/12/2023,Berlin,Enterprise,52,68600.0,168.6,,no
+1370,Customer 370,2022-10-30,mumbai,prem,6,"$34,100",166.9,,no
+1292,Customer 292,08/05/2024,Mumbai,BASIC,37,"$40,300",178.6,,Y
+1344,Customer 344,2024-03-25,Berlin,basic,28,64700.0,163.9,2.0,N
+1321,Customer 321,07/04/2022,New York,Enterprise,43,"$48,000",174.6,3.0,1
+1001,Customer 1,"Nov 28, 2023",New York,Basic,35,58800.0,64.8,6.0,no
+1281,Customer 281,"Mar 14, 2023",new york,Premium ,17,"$24,800",173.6,10.0,yes
+1579,Customer 579,2022-04-02,lima ,Enterprise,38,"$45,600",168.5,5.0,N
+1463,Customer 463,"Jan 13, 2023",lima ,Basic,27,34600.0,64.7,4.0,yes
+1335,Customer 335,"Dec 29, 2023",NYC,,44,12400.0,177.0,9.0,no
+1430,Customer 430,17/03/2022,Mumbai,premium,34,210500.0,160.0,6.0,no
+1311,Customer 311,2023-08-29,NYC,Enterprise,10,27600.0,175.6,9.0,N
+1055,Customer 55,09/02/2022,Mumbai,basic,34,"$29,700",169.4,1.0,no
+1080,Customer 80,"Apr 26, 2024",Berlin,Basic,40,32300.0,167.4,5.0,no
+1388,Customer 388,2024-03-13,Lima,,23,"$23,700",156.7,,N
+1249,Customer 249,07/02/2022,lima ,Basic,38,47000.0,177.8,,no
+1540,Customer 540,"Oct 01, 2023",new york,prem,34,30600.0,161.7,2.0,no
+1182,  Customer 182 ,2023-03-24,lima ,premium,43,91400.0,162.1,4.0,N
+1309,Customer 309,2022-04-08,Lima,premium,52,28200.0,175.0,9.0,no
+1123,Customer 123,2023-02-28,berlin,Premium ,50,41200.0,68.2,,no
+1171,Customer 171,"Mar 23, 2022",Bombay,enterprise,34,"$38,000",163.0,7.0,0
+1141,Customer 141,"Jul 13, 2022",mumbai,enterprise,34,22100.0,175.0,5.0,N
+1198,Customer 198,2022-11-02,LIMA,enterprise,40,20400.0,163.6,8.0,no
+1531,Customer 531,"May 29, 2022",Bombay,basic,52,37600.0,167.3,4.0,N
+1543,Customer 543,"Jun 07, 2022",Lima,enterprise,43,49900.0,158.1,8.0,yes
+1157,Customer 157,17/05/2023,Berlin,BASIC,41,"$37,700",197.3,6.0,no
+1484,Customer 484,2023-02-21,N/A,Basic,54,46900.0,182.8,9.0,no
+1378,  Customer 378 ,08/12/2022,,prem,53,"$30,600",171.9,8.0,N
+1128,Customer 128,02/06/2023,NYC,Basic,27,65000.0,184.5,10.0,0
+1507,Customer 507,"Aug 12, 2022",Mumbai,BASIC,39,37600.0,68.4,9.0,yes
+1176,Customer 176,08/10/2023,,BASIC,61,20600.0,68.2,4.0,no
+1246,Customer 246,2023-11-13,Lima,Premium ,15,31800.0,166.0,4.0,N
+1226,Customer 226,"Dec 29, 2023",Mumbai,BASIC,,22400.0,170.4,6.0,0
+1084,  Customer 84 ,2023-07-21,LIMA,Enterprise,38,"$105,700",188.7,6.0,yes
+1161,  Customer 161 ,21/08/2023,LIMA,prem,20,34000.0,173.4,6.0,no
+1416,Customer 416,22/05/2024,,Premium ,52,92300.0,173.6,6.0,no
+1345,Customer 345,2022-08-19,NYC,Premium ,39,57200.0,167.6,5.0,1
+1032,Customer 32,24/03/2022,new york,Basic,44,27000.0,164.3,9.0,yes
+1129,Customer 129,26/07/2023,New York,Premium ,28,"$122,800",177.0,5.0,0
+1018,Customer 18,2024-01-26,Mumbai,prem,33,"$35,400",187.7,5.0,no
+1439,Customer 439,"Dec 24, 2022",berlin,basic,39,"$86,300",161.2,4.0,no
+1221,Customer 221,15/02/2023,berlin,premium,49,67900.0,166.9,7.0,0
+1387,Customer 387,2024-01-19,NYC,enterprise,38,48700.0,156.2,1.0,no
+1565,Customer 565,2022-08-02,berlin,,16,36000.0,175.1,7.0,N
+1222,Customer 222,2023-09-26,NYC,Basic,38,48800.0,174.3,,0
+1354,Customer 354,"May 22, 2024",mumbai,basic,43,43000.0,160.3,10.0,N
+1016,Customer 16,2023-04-07,unknown,prem,,"$60,500",181.2,5.0,no
+1312,Customer 312,17/04/2022,mumbai,Premium ,?,70000.0,68.7,8.0,N
+1481,Customer 481,"Jan 17, 2024",Berlin,Basic,39,"$49,100",188.6,,yes
+1497,  Customer 497 ,"Dec 03, 2022",Bombay,basic,28,90600.0,178.0,7.0,no
+1120,Customer 120,2023-01-31,lima ,prem,27,29800.0,169.4,6.0,N
+1250,Customer 250,"Jun 11, 2022",lima ,Basic,37,"$39,300",165.6,5.0,yes
+1422,Customer 422,"Nov 21, 2023",Mumbai,Basic,47,"$44,000",176.4,5.0,Y
+1273,  Customer 273 ,2024-05-12,,basic,34,58600.0,184.8,8.0,yes
+1276,Customer 276,25/02/2023,new york,basic,38,"$32,000",171.0,5.0,yes
+1013,Customer 13,17/11/2023,Berlin,Basic,25,28900.0,191.0,3.0,1
+1199,Customer 199,15/05/2024,NYC,Enterprise,26,51400.0,175.1,4.0,Y
+1116,Customer 116,03/02/2022,New York,prem,13,66600.0,160.9,6.0,N
+1569,Customer 569,"May 30, 2023",NYC,Premium ,,"$67,100",154.7,5.0,no
+1040,Customer 40,"May 29, 2022",Mumbai,premium,41,70600.0,168.5,5.0,no
+1389,Customer 389,"May 18, 2022",Mumbai,premium,35,26100.0,164.7,5.0,Y
+1065,Customer 65,"Oct 21, 2022",LIMA,BASIC,61,104700.0,69.8,5.0,no
+1072,Customer 72,21/02/2023,Lima,Premium ,34,"$117,000",166.0,5.0,N
+1183,Customer 183,2023-09-19,berlin,Enterprise,52,79200.0,68.5,8.0,no
+1514,Customer 514,2024-05-13,LIMA,prem,38,27900.0,63.9,5.0,N
+1469,  Customer 469 ,2024-04-19,Bombay,Premium ,32,"$22,400",176.5,5.0,0
+1109,Customer 109,27/09/2023,mumbai,,47,74800.0,162.9,4.0,0
+1165,Customer 165,"Jan 03, 2024",Bombay,prem,27,64900.0,172.2,10.0,no
+1236,Customer 236,"Aug 20, 2023",Bombay,basic,32,59600.0,182.8,10.0,no
+1077,  Customer 77 ,2022-07-24,NYC,Basic,44,39200.0,171.8,6.0,no
+1284,Customer 284,"Feb 02, 2023",Berlin,Premium ,22,51800.0,66.9,6.0,N
+1488,Customer 488,20/11/2023,Mumbai,BASIC,37,43800.0,179.9,3.0,0
+1251,Customer 251,"Mar 21, 2023",New York,Basic,,"$11,200",174.9,7.0,0
+1407,Customer 407,10/05/2022,lima ,,42,"$34,000",66.5,,N
+1343,  Customer 343 ,09/04/2023,,premium,35,66700.0,170.6,4.0,yes
+1294,  Customer 294 ,"May 06, 2023",berlin,enterprise,27,61400.0,60.6,6.0,yes
+1003,Customer 3,2023-01-30,Mumbai,Enterprise,11,45700.0,184.3,8.0,no
+1535,Customer 535,2022-05-19,Mumbai,premium,25,24400.0,175.9,5.0,yes
+1594,Customer 594,16/10/2022,mumbai,BASIC,17,73500.0,175.0,2.0,N
+1330,Customer 330,08/05/2023,Mumbai,,24,34300.0,179.8,3.0,0
+1178,Customer 178,2024-03-21,Lima,basic,50,40500.0,71.6,6.0,yes
+1347,Customer 347,2024-04-22,NYC,basic,?,"$27,400",169.7,11.0,no
+1425,Customer 425,2022-06-29,berlin,Basic,33,43200.0,169.6,7.0,yes
+1089,Customer 89,"Jan 20, 2024",new york,basic,20,49600.0,176.9,4.0,N
+1062,Customer 62,2022-11-26,new york,prem,44,45000.0,174.4,13.0,1
+1265,Customer 265,"Jun 07, 2023",LIMA,prem,57,63300.0,171.7,8.0,Y
+1480,Customer 480,"Sep 17, 2022",NYC,prem,,"$54,800",174.4,8.0,no
+1582,Customer 582,"Apr 07, 2022",Mumbai,Premium ,22,31000.0,176.5,4.0,0
+1108,Customer 108,01/03/2023,N/A,premium,33,"$55,800",178.4,7.0,no
+1152,Customer 152,2024-04-05,lima ,Premium ,26,"$190,100",181.4,6.0,no
+1375,Customer 375,2022-03-27,new york,Enterprise,43,"$52,600",70.0,6.0,yes
+1130,Customer 130,"May 24, 2023",Berlin,enterprise,44,44300.0,172.6,5.0,no
+1158,Customer 158,2023-03-31,new york,BASIC,40,"$29,300",168.0,4.0,yes
+1377,Customer 377,04/11/2023,mumbai,basic,30,27600.0,149.7,6.0,no
+1453,Customer 453,"Jan 23, 2022",New York,Premium ,51,"$44,300",170.9,13.0,no
+1231,  Customer 231 ,2024-02-10,Bombay,Premium ,34,"$80,600",174.2,2.0,yes
+1457,Customer 457,"Jul 25, 2023",mumbai,Enterprise,32,67800.0,170.4,6.0,no
+1501,Customer 501,10/08/2023,mumbai,prem,32,55500.0,179.7,7.0,N
+1529,Customer 529,08/04/2024,Lima,enterprise,23,52200.0,179.7,7.0,Y
+1591,Customer 591,2024-03-23,unknown,,33,54500.0,152.9,11.0,1
+1307,Customer 307,2023-05-14,Bombay,Enterprise,26,1900000.0,172.5,7.0,N
+1240,Customer 240,2022-05-07,New York,prem,,74000.0,172.3,,0
+1295,Customer 295,14/04/2023,mumbai,Premium ,46,"$65,000",68.5,3.0,yes
+1317,Customer 317,"Oct 17, 2023",Mumbai,premium,35,57800.0,63.0,3.0,no
+1329,  Customer 329 ,15/05/2023,Bombay,Premium ,36,54500.0,171.2,10.0,no
+1212,Customer 212,"Dec 12, 2023",Mumbai,enterprise,36,65400.0,158.3,6.0,no
+1314,Customer 314,08/08/2022,Mumbai,basic,,36900.0,166.0,4.0,no
+1355,Customer 355,12/06/2024,new york,basic,51,"$74,600",155.3,4.0,N
+1525,  Customer 525 ,"Oct 07, 2022",New York,basic,45,15700.0,160.7,6.0,N
+1142,Customer 142,06/09/2022,NYC,Enterprise,27,"$46,100",169.6,7.0,N
+1060,Customer 60,2024-04-10,Lima,Basic,26,39900.0,171.8,9.0,no
+1441,  Customer 441 ,"Sep 28, 2022",LIMA,premium,34,108600.0,66.5,6.0,no
+1520,Customer 520,2022-11-19,lima ,premium,43,39100.0,171.5,8.0,no
+1444,Customer 444,"Apr 03, 2023",unknown,premium,41,26600.0,186.9,6.0,no
+1440,Customer 440,"May 25, 2024",mumbai,Enterprise,?,15200.0,195.3,6.0,N
+1492,Customer 492,"Nov 10, 2023",lima ,basic,37,34100.0,150.8,4.0,N
+1131,Customer 131,14/05/2023,lima ,basic,36,59200.0,64.9,2.0,no
+1058,Customer 58,2023-11-01,Bombay,prem,35,82700.0,162.0,6.0,N
+1297,Customer 297,2023-01-31,Mumbai,enterprise,17,57800.0,176.9,10.0,no
+1409,Customer 409,13/01/2022,lima ,BASIC,23,"$61,500",160.6,9.0,yes
+1227,Customer 227,"Jun 06, 2023",berlin,prem,52,92100.0,169.4,4.0,N
+1458,Customer 458,27/01/2024,Berlin,prem,38,"$23,200",170.6,9.0,Y
+1476,  Customer 476 ,"Feb 02, 2024",Bombay,prem,65,"$46,600",170.9,8.0,yes
+1053,Customer 53,"Feb 25, 2023",mumbai,basic,56,106500.0,169.1,3.0,0
+1136,Customer 136,"Jun 27, 2023",Bombay,enterprise,38,48500.0,173.0,,no
+1209,Customer 209,"Dec 02, 2023",new york,Basic,38,124400.0,159.4,3.0,no
+1146,Customer 146,01/02/2022,N/A,prem,22,76000.0,176.0,3.0,no
+1327,Customer 327,2022-02-03,mumbai,premium,31,18100.0,175.8,4.0,0
+1203,  Customer 203 ,"Sep 22, 2023",berlin,premium,37,31000.0,71.9,7.0,1
+1288,Customer 288,2023-05-04,LIMA,Premium ,47,44600.0,168.4,,N
+1239,Customer 239,"Jul 19, 2023",Mumbai,basic,34,31100.0,153.4,4.0,yes
+1395,Customer 395,27/02/2024,New York,basic,40,45400.0,167.5,7.0,0
+1066,Customer 66,25/03/2024,mumbai,Enterprise,40,"$32,900",179.0,,no
+1402,Customer 402,16/10/2022,lima ,Enterprise,43,30000.0,67.0,3.0,no
+1437,Customer 437,2024-04-14,Berlin,Basic,27,"$88,200",169.0,3.0,N
+1592,Customer 592,2022-08-04,Mumbai,prem,34,28000.0,64.2,5.0,N
+1521,Customer 521,2022-05-12,berlin,BASIC,49,55800.0,184.8,2.0,1
+1117,Customer 117,06/05/2022,LIMA,prem,29,71500.0,67.8,6.0,Y
+1028,  Customer 28 ,06/05/2023,new york,Basic,44,13000.0,166.2,3.0,N
+1489,Customer 489,2023-06-30,mumbai,,26,"$21,900",60.2,9.0,no
+1248,Customer 248,"Dec 10, 2023",Berlin,premium,38,"$55,200",160.3,6.0,no
+1275,Customer 275,11/03/2023,NYC,prem,48,34100.0,167.0,8.0,no
+1268,Customer 268,06/07/2023,Bombay,premium,0,102100.0,157.4,10.0,no
+1103,Customer 103,2022-01-07,NYC,Basic,47,74000.0,161.9,5.0,yes
+1020,Customer 20,27/03/2023,Berlin,Enterprise,47,34300.0,167.6,,no
+1137,Customer 137,28/01/2022,NYC,enterprise,36,22400.0,171.7,7.0,0
+1110,Customer 110,"Sep 07, 2022",NYC,prem,54,"$22,300",186.4,8.0,no
+1429,Customer 429,06/10/2023,Bombay,premium,45,64000.0,65.0,9.0,0
+1180,Customer 180,"Apr 24, 2024",LIMA,premium,47,"$27,900",164.2,5.0,0
+1155,Customer 155,19/08/2023,LIMA,Basic,?,60700.0,187.7,7.0,0
+1112,  Customer 112 ,"May 16, 2023",new york,BASIC,,27500.0,182.0,,no
+1539,  Customer 539 ,20/01/2022,Bombay,Premium ,50,51500.0,155.7,5.0,0
+1414,Customer 414,17/01/2022,unknown,BASIC,54,47700.0,153.3,4.0,0
+1205,Customer 205,"Aug 28, 2022",berlin,prem,58,102600.0,157.7,3.0,no
+1342,Customer 342,"Jul 14, 2023",Mumbai,prem,17,16900.0,175.3,9.0,no
+1338,Customer 338,02/07/2022,new york,enterprise,51,"$39,600",171.5,3.0,no
+1007,  Customer 7 ,20/09/2023,Mumbai,Premium ,46,71300.0,184.6,7.0,N
+1568,Customer 568,"Aug 02, 2023",new york,premium,46,"$84,900",179.3,6.0,yes
+1193,Customer 193,"Nov 22, 2022",new york,enterprise,57,102400.0,171.6,3.0,0
+1225,Customer 225,2022-10-03,Berlin,BASIC,42,"$149,500",62.2,,N
+1546,  Customer 546 ,22/01/2023,Berlin,,35,"$44,000",184.1,6.0,0
+1167,Customer 167,31/05/2022,mumbai,Premium ,39,58500.0,161.8,7.0,yes
+1159,Customer 159,"Dec 07, 2023",Mumbai,BASIC,?,"$155,600",69.7,4.0,1
+1382,Customer 382,02/05/2024,,prem,999,70600.0,60.5,3.0,N
+1340,Customer 340,"Jul 26, 2023",mumbai,Basic,44,89300.0,178.2,5.0,0
+1000,  Customer 0 ,22/03/2022,N/A,basic,52,41900.0,158.1,7.0,no
+1024,Customer 24,05/12/2023,Lima,Premium ,32,76400.0,167.6,7.0,no
+1038,Customer 38,"Sep 07, 2022",New York,basic,24,31200.0,173.6,4.0,yes
+1300,Customer 300,2022-11-24,new york,Premium ,36,76000.0,163.3,11.0,no
+1435,Customer 435,"Apr 22, 2022",berlin,basic,32,"$50,200",181.1,4.0,no
+1150,Customer 150,"Feb 10, 2024",Lima,enterprise,46,62000.0,165.3,4.0,Y
+1041,Customer 41,"Nov 14, 2023",mumbai,Enterprise,31,36700.0,170.1,1.0,1
+1557,Customer 557,"Feb 27, 2024",lima ,basic,36,"$25,400",173.2,6.0,no
+1094,Customer 94,2024-03-19,mumbai,prem,41,89000.0,69.6,4.0,no
+1452,Customer 452,26/03/2023,berlin,Enterprise,50,49200.0,164.1,7.0,0
+1432,Customer 432,"Jan 14, 2024",LIMA,Enterprise,42,57600.0,171.0,3.0,no
+1023,Customer 23,14/04/2024,new york,basic,44,"$56,900",179.5,2.0,no
+1012,Customer 12,"Oct 25, 2023",new york,prem,56,103000.0,159.1,3.0,yes
+1586,Customer 586,2023-09-13,lima ,premium,21,25700.0,70.6,6.0,no
+1419,Customer 419,2023-04-01,Lima,prem,46,96700.0,179.5,9.0,no
+1160,Customer 160,2024-06-15,N/A,basic,47,"$57,700",166.4,5.0,N
+1431,Customer 431,2023-10-28,berlin,Enterprise,46,20200.0,65.0,8.0,N
+1200,Customer 200,2022-11-26,Mumbai,Enterprise,42,"$91,500",68.6,5.0,no
+1173,Customer 173,"Oct 13, 2023",Mumbai,enterprise,38,43200.0,69.9,5.0,no
+1100,Customer 100,20/01/2024,New York,BASIC,43,25300.0,165.8,,no
+1598,Customer 598,"Jul 20, 2023",LIMA,Premium ,20,"$69,100",170.7,4.0,0
+1304,Customer 304,04/05/2023,mumbai,Premium ,48,36000.0,166.3,11.0,N
+1571,Customer 571,10/01/2023,Lima,enterprise,49,152300.0,167.7,8.0,yes
+1015,Customer 15,09/12/2023,Mumbai,basic,58,38400.0,167.0,6.0,0
+1505,Customer 505,2023-02-13,Berlin,basic,43,"$22,300",65.8,8.0,yes
+1188,Customer 188,03/08/2022,Mumbai,premium,18,48400.0,72.1,5.0,yes
+1384,Customer 384,29/01/2022,new york,prem,,"$49,600",172.7,5.0,no
+1194,Customer 194,13/05/2024,Berlin,prem,53,90500.0,175.6,,no
+1352,Customer 352,26/09/2022,Berlin,premium,39,30800.0,167.8,5.0,N
+1511,  Customer 511 ,2023-11-03,LIMA,Basic,45,160700.0,62.6,5.0,N
+1076,Customer 76,25/10/2022,LIMA,enterprise,26,73000.0,62.5,7.0,0
+1289,Customer 289,2023-03-03,Lima,Premium ,23,"$45,200",166.6,6.0,1
+1073,Customer 73,2022-04-27,lima ,Basic,58,38500.0,64.8,11.0,0
+1329,  Customer 329 ,15/05/2023,Bombay,Premium ,36,54500.0,171.2,10.0,no
+1363,Customer 363,2024-03-15,mumbai,Basic,40,59700.0,171.6,,N
+1436,Customer 436,"May 26, 2023",Lima,Enterprise,20,"$71,700",170.1,4.0,0
+1381,Customer 381,"Apr 23, 2024",Lima,Basic,38,53200.0,64.5,9.0,no
+1204,Customer 204,"Feb 16, 2023",mumbai,premium,37,"$35,000",166.8,6.0,no
+1333,Customer 333,17/01/2024,mumbai,basic,30,18600.0,164.0,6.0,no
+1232,Customer 232,18/01/2022,NYC,Enterprise,40,79700.0,158.1,4.0,no
+1272,Customer 272,2022-05-17,Lima,,49,"$119,700",164.2,6.0,N
+1496,Customer 496,"Apr 18, 2022",berlin,,20,"$37,500",165.5,6.0,no
+1320,Customer 320,"Oct 16, 2022",New York,Premium ,29,17100.0,197.8,5.0,N
+1462,  Customer 462 ,2023-11-05,mumbai,prem,45,44800.0,166.2,11.0,N
+1443,Customer 443,16/03/2023,lima ,basic,42,84000.0,174.7,9.0,0
+1599,Customer 599,02/08/2023,mumbai,enterprise,30,89900.0,169.4,,no
+1258,Customer 258,"Jun 07, 2022",NYC,BASIC,28,45600.0,172.3,5.0,yes
+1235,Customer 235,"Oct 10, 2023",berlin,,41,"$44,100",179.0,8.0,0
+1069,Customer 69,2023-02-27,NYC,Basic,45,35800.0,169.3,,1
+1014,  Customer 14 ,"Oct 08, 2023",mumbai,,41,"$25,300",177.4,6.0,0
+1200,Customer 200,2022-11-26,Mumbai,Enterprise,42,"$91,500",68.6,5.0,no
+1372,Customer 372,05/01/2023,LIMA,basic,-2,"$73,500",164.4,4.0,no
+1445,Customer 445,2023-08-20,NYC,prem,?,32400.0,177.1,4.0,0
+1078,Customer 78,24/05/2023,new york,premium,42,47800.0,192.2,7.0,0
+1202,Customer 202,22/03/2023,NYC,enterprise,24,"$58,000",161.2,4.0,N
+1280,  Customer 280 ,2022-09-06,LIMA,premium,43,"$25,800",65.4,5.0,no
+1415,Customer 415,"Sep 02, 2023",Lima,Premium ,58,86400.0,165.6,6.0,yes
+1223,Customer 223,02/07/2022,N/A,BASIC,29,63400.0,172.9,7.0,0
+1192,Customer 192,"Jul 01, 2023",mumbai,Basic,56,56700.0,177.8,2.0,N
+1398,Customer 398,"Sep 10, 2022",lima ,premium,27,46200.0,68.7,10.0,N
+1567,  Customer 567 ,13/08/2022,berlin,Basic,38,"$36,900",159.3,18.0,no
+1448,  Customer 448 ,"Apr 14, 2023",NYC,Premium ,34,56500.0,166.9,7.0,yes
+1267,Customer 267,"Nov 09, 2022",Mumbai,Premium ,39,40200.0,60.2,6.0,Y
+1399,  Customer 399 ,07/10/2022,New York,Premium ,50,21800.0,164.0,10.0,no
+1010,Customer 10,"Apr 19, 2023",berlin,Premium ,29,26500.0,165.6,,N
+1509,Customer 509,2022-08-01,berlin,,,"$60,200",172.2,7.0,yes
+1037,Customer 37,2024-01-15,unknown,premium,29,72500.0,183.5,6.0,no
+1475,Customer 475,2023-12-08,new york,Basic,39,"$28,300",176.9,5.0,N
+1002,Customer 2,"Aug 13, 2023",,prem,42,66600.0,61.2,7.0,0
+1025,Customer 25,2023-08-03,lima ,,52,38400.0,176.7,5.0,no
+1052,Customer 52,2022-11-24,berlin,Basic,11,66800.0,63.4,6.0,Y
+1216,Customer 216,2022-03-13,New York,premium,42,"$44,300",164.8,8.0,N
+1473,Customer 473,25/02/2023,NYC,,24,52300.0,161.5,4.0,yes
+1542,Customer 542,"Jun 25, 2022",Mumbai,prem,27,50900.0,173.5,4.0,N
+1166,Customer 166,17/10/2022,new york,Basic,18,25700.0,172.4,3.0,yes
+1379,Customer 379,25/08/2022,NYC,,33,35700.0,161.6,3.0,N
+1177,Customer 177,2022-05-26,N/A,Enterprise,58,75400.0,174.9,1.0,N
+1247,Customer 247,2023-01-10,Lima,enterprise,18,21600.0,183.6,5.0,yes
+1428,Customer 428,23/01/2022,Berlin,BASIC,42,34900.0,171.2,5.0,no
+1066,Customer 66,25/03/2024,mumbai,Enterprise,40,"$32,900",179.0,,no
+1013,Customer 13,17/11/2023,Berlin,Basic,25,28900.0,191.0,3.0,1
+1460,Customer 460,"Oct 13, 2023",New York,Enterprise,32,46200.0,180.0,5.0,Y
+1499,Customer 499,19/01/2023,NYC,Enterprise,53,"$67,500",71.0,5.0,no
+1486,Customer 486,"Oct 28, 2022",new york,basic,50,52400.0,60.4,6.0,0
+1519,Customer 519,19/06/2023,lima ,Premium ,55,"$126,900",159.3,,Y
+1413,  Customer 413 ,2022-04-29,mumbai,Premium ,48,28700.0,167.7,6.0,0
+1054,Customer 54,25/03/2023,Mumbai,prem,66,"$92,800",162.5,3.0,no
+1522,Customer 522,2022-06-23,NYC,prem,52,"$81,800",168.4,6.0,yes
+1234,Customer 234,"Mar 20, 2023",LIMA,BASIC,32,44000.0,190.1,6.0,0
+1114,Customer 114,"Apr 01, 2023",Berlin,premium,35,50300.0,65.0,4.0,no
+1391,Customer 391,11/06/2022,berlin,prem,48,82000.0,164.5,7.0,N
+1191,Customer 191,22/07/2023,Lima,basic,24,53600.0,154.1,10.0,N
+1574,  Customer 574 ,2022-01-07,LIMA,enterprise,49,27200.0,175.2,5.0,no
+1151,Customer 151,2022-09-11,Lima,premium,25,68100.0,159.9,4.0,no
+1179,Customer 179,"Mar 27, 2023",berlin,premium,28,59200.0,176.1,2.0,1
+1154,  Customer 154 ,26/01/2023,LIMA,prem,39,"$32,900",174.8,2.0,no
+1256,Customer 256,2023-09-02,Bombay,,34,24500.0,180.0,4.0,no
+1503,Customer 503,2024-02-20,LIMA,Basic,,"$75,900",172.4,5.0,yes
+1334,Customer 334,19/02/2023,NYC,basic,42,26000.0,180.2,13.0,no
+1559,Customer 559,06/02/2024,Berlin,Basic,39,33300.0,65.9,10.0,0
+1175,  Customer 175 ,"Feb 20, 2023",LIMA,BASIC,27,"$77,500",163.7,7.0,no
+1029,Customer 29,04/02/2023,Bombay,Basic,46,24600.0,171.1,,yes
+1126,  Customer 126 ,"Mar 13, 2022",mumbai,enterprise,37,3100000.0,172.1,4.0,yes
+1374,Customer 374,2024-03-08,mumbai,premium,43,"$40,300",160.8,5.0,yes
+1070,  Customer 70 ,"Dec 18, 2023",Bombay,BASIC,19,72200.0,165.9,8.0,no
+1578,Customer 578,2024-03-15,NYC,Premium ,,4000000.0,158.7,6.0,N
+1549,Customer 549,"Sep 05, 2023",New York,Premium ,57,77400.0,70.7,3.0,no
+1516,Customer 516,"Mar 04, 2024",new york,Enterprise,40,52600.0,64.9,13.0,yes
+1215,Customer 215,"Sep 03, 2022",NYC,prem,44,41700.0,166.2,5.0,yes
+1286,Customer 286,2022-05-25,Berlin,Enterprise,39,48700.0,179.7,4.0,no
+1331,Customer 331,"Nov 30, 2022",Mumbai,Premium ,39,94500.0,177.8,7.0,no
+1230,Customer 230,2023-02-21,Mumbai,premium,?,149400.0,179.2,8.0,0
+1196,  Customer 196 ,"Nov 05, 2022",LIMA,prem,53,"$41,800",63.4,9.0,yes
+1266,  Customer 266 ,"Feb 07, 2023",Lima,premium,37,"$46,500",180.3,8.0,no
+1417,Customer 417,20/04/2022,berlin,Enterprise,37,"$24,100",177.4,7.0,no
+1017,Customer 17,2022-04-26,New York,Basic,24,46600.0,176.2,3.0,N
+1350,  Customer 350 ,2023-04-25,unknown,Premium ,43,71300.0,170.5,6.0,Y
+1027,Customer 27,11/01/2024,,Premium ,?,34300.0,166.8,5.0,N
+1596,Customer 596,"Jun 06, 2023",NYC,premium,,"$14,500",175.8,,0
+1277,Customer 277,"Dec 06, 2023",N/A,prem,41,61700.0,160.2,1.0,N
+1119,  Customer 119 ,14/04/2022,NYC,premium,12,14200.0,179.5,10.0,no
+1228,Customer 228,"May 08, 2023",mumbai,basic,50,97100.0,176.3,6.0,N
+1169,Customer 169,21/01/2022,new york,premium,58,"$61,900",168.8,,N
+1147,  Customer 147 ,2022-07-30,Berlin,Basic,28,56100.0,164.0,6.0,no
+1285,Customer 285,"Apr 24, 2024",lima ,enterprise,37,"$86,000",162.6,9.0,yes
+1214,Customer 214,"Oct 26, 2023",,,24,"$88,500",60.1,,0
+1393,Customer 393,24/06/2023,Mumbai,Basic,35,58300.0,65.3,7.0,no
+1588,  Customer 588 ,24/01/2024,berlin,Premium ,29,85800.0,173.3,6.0,N
+1508,Customer 508,"Aug 30, 2022",LIMA,premium,34,"$26,300",167.5,11.0,yes
+1383,Customer 383,05/08/2022,Bombay,Premium ,56,"$22,200",167.5,5.0,1
+1106,Customer 106,2023-12-04,NYC,premium,32,"$40,200",181.1,,no
+1575,Customer 575,03/12/2022,berlin,basic,41,33200.0,162.6,5.0,N
+1566,Customer 566,2022-07-25,unknown,Basic,32,35300.0,163.3,5.0,N
+1426,Customer 426,2024-02-17,Bombay,Enterprise,45,48000.0,150.2,6.0,yes
+1259,  Customer 259 ,"Jun 13, 2023",mumbai,prem,34,"$56,700",172.3,6.0,no
+1042,  Customer 42 ,"Sep 23, 2023",NYC,Enterprise,54,64800.0,176.6,7.0,no
+1163,Customer 163,"Jan 01, 2023",Lima,Enterprise,49,46400.0,169.0,7.0,N
+1455,  Customer 455 ,"May 15, 2023",Mumbai,basic,32,"$63,000",187.3,4.0,N
+1170,Customer 170,06/04/2022,New York,prem,?,40600.0,68.3,5.0,0
+1254,Customer 254,2023-08-18,Bombay,Basic,55,35200.0,178.2,9.0,N
+1358,Customer 358,"Mar 23, 2022",Bombay,enterprise,44,96900.0,185.2,8.0,N
+1090,Customer 90,"Jan 27, 2023",Berlin,premium,43,36300.0,181.4,6.0,no
+1479,Customer 479,"Apr 09, 2022",unknown,premium,40,34600.0,157.6,5.0,Y
+1306,Customer 306,29/09/2022,lima ,Premium ,25,"$35,900",168.0,5.0,no
+1035,  Customer 35 ,"Feb 27, 2022",Mumbai,Basic,22,"$93,500",151.6,7.0,no
+1396,Customer 396,10/02/2022,Lima,Enterprise,45,64500.0,172.0,3.0,N
+1365,Customer 365,12/04/2023,Mumbai,Premium ,43,34100.0,161.7,5.0,no
+1147,  Customer 147 ,2022-07-30,Berlin,Basic,28,56100.0,164.0,6.0,no
+1269,Customer 269,2023-06-16,lima ,BASIC,73,"$46,300",178.7,5.0,0
+1449,Customer 449,2022-09-15,Bombay,enterprise,14,84300.0,171.0,6.0,no
+1118,Customer 118,2022-08-09,New York,Premium ,29,"$43,200",177.0,5.0,no
+1162,Customer 162,"Jan 04, 2023",Berlin,premium,13,77500.0,177.5,7.0,no
+1541,Customer 541,19/02/2022,lima ,prem,,37600.0,70.1,5.0,no
+1517,Customer 517,01/03/2022,Berlin,Basic,31,15300.0,181.9,4.0,N
+1590,Customer 590,22/12/2023,berlin,,58,"$25,000",164.5,2.0,Y
+1006,Customer 6,2022-03-19,new york,Enterprise,26,"$43,100",60.0,8.0,0
+1305,Customer 305,"May 07, 2022",New York,enterprise,26,48500.0,160.7,7.0,no
+1397,Customer 397,26/06/2022,LIMA,premium,27,34500.0,172.9,6.0,no
+1495,Customer 495,2023-01-07,Bombay,prem,35,29400.0,170.2,6.0,0
+1291,Customer 291,"Aug 29, 2022",mumbai,,32,23700.0,159.8,7.0,no
+1174,Customer 174,"Sep 20, 2023",Bombay,Basic,35,40600.0,156.9,3.0,0
+1533,Customer 533,"Sep 14, 2022",LIMA,Basic,54,"$25,100",169.5,7.0,yes
+1099,Customer 99,2022-05-06,berlin,basic,64,"$55,600",165.3,8.0,N
+1229,Customer 229,2022-06-09,LIMA,BASIC,37,32000.0,65.5,5.0,yes
+1264,Customer 264,"Jun 09, 2024",Mumbai,Premium ,,41700.0,68.0,6.0,no
+1368,Customer 368,"Jan 20, 2022",Berlin,premium,34,24600.0,177.4,2.0,0
+1537,Customer 537,14/04/2022,NYC,,39,128200.0,170.4,4.0,1
+1530,Customer 530,23/06/2023,New York,prem,29,36600.0,173.2,11.0,yes
+1217,  Customer 217 ,2022-03-28,Lima,Premium ,18,38300.0,71.9,7.0,0
+1556,Customer 556,2023-10-25,new york,BASIC,53,63200.0,171.6,6.0,N
+1334,Customer 334,19/02/2023,NYC,basic,42,26000.0,180.2,13.0,no
+1353,Customer 353,27/01/2023,Bombay,BASIC,38,104600.0,174.4,5.0,N
+1490,  Customer 490 ,19/04/2024,New York,Premium ,,80400.0,158.2,9.0,0
+1455,  Customer 455 ,"May 15, 2023",Mumbai,basic,32,"$63,000",187.3,4.0,N
+1098,  Customer 98 ,2023-07-28,new york,,42,50500.0,172.1,8.0,yes
+1189,  Customer 189 ,2022-09-29,LIMA,Premium ,39,"$58,800",170.4,5.0,no
+1332,Customer 332,2022-10-06,Lima,BASIC,26,41900.0,168.5,5.0,no
+1303,Customer 303,"Mar 17, 2024",new york,Enterprise,40,"$53,600",179.7,9.0,yes
+1260,Customer 260,"Dec 16, 2023",Lima,,54,156800.0,174.4,4.0,1
+1144,Customer 144,"Jun 12, 2024",Bombay,Premium ,50,"$19,200",163.5,4.0,no
+1589,Customer 589,2024-01-30,Mumbai,,65,"$56,900",64.9,7.0,yes
+1459,Customer 459,2022-04-06,lima ,Basic,49,50300.0,166.6,2.0,N
+1186,Customer 186,2022-05-30,mumbai,enterprise,45,60000.0,179.6,4.0,Y
+1283,Customer 283,2023-03-18,New York,BASIC,27,"$20,300",66.0,10.0,N
+1011,Customer 11,28/05/2024,new york,basic,?,"$30,800",163.1,5.0,0
+1510,Customer 510,14/06/2024,Lima,enterprise,21,38800.0,183.0,9.0,no
+1418,Customer 418,2022-09-24,lima ,Enterprise,42,41900.0,163.6,8.0,0
+1181,Customer 181,18/05/2022,lima ,enterprise,45,95300.0,173.1,5.0,N
+1467,Customer 467,21/06/2023,N/A,basic,30,40400.0,176.3,4.0,1
+1127,Customer 127,2023-11-20,New York,,50,"$60,000",180.9,9.0,no
+1526,Customer 526,"Apr 11, 2024",LIMA,premium,44,"$67,500",174.6,6.0,no
+1057,Customer 57,19/05/2022,Lima,premium,35,"$37,600",168.9,4.0,N
+1033,Customer 33,15/05/2023,lima ,basic,27,95100.0,179.5,8.0,no
+1237,Customer 237,2023-01-24,lima ,Premium ,31,98800.0,170.8,4.0,no
+1282,Customer 282,28/08/2023,berlin,BASIC,?,24000.0,145.3,7.0,yes
+1074,Customer 74,10/09/2023,NYC,basic,36,"$80,800",164.0,8.0,N
+1362,Customer 362,"Jul 21, 2022",Bombay,Enterprise,48,64600.0,70.6,6.0,N
+1243,Customer 243,2023-08-08,LIMA,basic,33,71200.0,169.4,6.0,yes
+1091,  Customer 91 ,"Dec 26, 2023",Berlin,Premium ,32,"$110,200",67.1,0.0,N
+1092,Customer 92,"Jan 28, 2024",Berlin,BASIC,,58800.0,169.9,8.0,no
+1451,Customer 451,12/04/2024,berlin,,38,79800.0,66.5,3.0,yes
+1337,Customer 337,2022-10-13,Lima,enterprise,-1,44600.0,167.2,7.0,0
+1403,Customer 403,"May 24, 2024",mumbai,Enterprise,43,"$39,000",165.5,6.0,no
+1279,Customer 279,16/03/2022,berlin,Enterprise,?,50000.0,184.5,7.0,no
+1156,Customer 156,"Apr 24, 2022",Berlin,BASIC,36,61100.0,68.6,5.0,no
+1301,  Customer 301 ,2024-01-14,Berlin,premium,37,24700.0,179.1,12.0,1
+1504,  Customer 504 ,2022-09-04,Berlin,BASIC,36,37500.0,170.8,6.0,0
+1085,Customer 85,"Sep 23, 2023",new york,Basic,28,101200.0,162.4,7.0,N
+1190,Customer 190,2023-09-08,new york,Basic,32,64700.0,177.0,3.0,no
+1039,Customer 39,"Jul 23, 2023",New York,Enterprise,46,63700.0,163.1,9.0,yes
+1111,Customer 111,04/12/2023,Berlin,enterprise,33,35200.0,159.8,4.0,yes
+1446,Customer 446,2022-10-10,Bombay,Enterprise,45,"$52,700",155.6,4.0,0
+1494,Customer 494,2022-09-18,mumbai,basic,26,23100.0,180.2,4.0,0
+1252,  Customer 252 ,"Jun 19, 2022",lima ,Basic,9,26300.0,179.9,15.0,N
+1310,Customer 310,"Aug 23, 2023",New York,premium,33,"$57,600",164.8,1.0,0
+1004,Customer 4,"Jan 25, 2023",N/A,Premium ,25,105400.0,172.0,6.0,yes
+1515,Customer 515,05/04/2022,Bombay,Premium ,47,38300.0,69.8,3.0,yes
+1104,Customer 104,2023-12-19,New York,Enterprise,45,"$53,400",171.4,2.0,no
+1500,Customer 500,13/04/2022,new york,,69,37500.0,177.9,6.0,N
+1233,Customer 233,2023-11-14,,Enterprise,36,49700.0,180.9,11.0,0
+1164,Customer 164,12/01/2023,new york,Basic,51,43200.0,186.0,5.0,0
+1105,  Customer 105 ,10/12/2023,unknown,Basic,52,39400.0,66.9,9.0,no
+1341,Customer 341,19/09/2022,Mumbai,enterprise,53,45000.0,172.6,,1
+1241,Customer 241,10/06/2023,NYC,,41,77700.0,164.7,9.0,Y
+1518,  Customer 518 ,"Mar 04, 2023",lima ,Enterprise,51,55200.0,175.7,5.0,N
+1185,Customer 185,06/02/2023,Mumbai,prem,46,74200.0,159.3,2.0,N
+1572,Customer 572,12/09/2022,Lima,prem,49,29300.0,168.1,7.0,Y
+1253,Customer 253,2022-10-24,NYC,BASIC,42,85900.0,176.7,2.0,yes
+1408,Customer 408,"Apr 20, 2024",new york,BASIC,45,"$59,200",162.8,9.0,no
+1262,Customer 262,2022-09-27,lima ,premium,34,42100.0,72.7,5.0,no
+1208,Customer 208,26/08/2022,NYC,Enterprise,41,"$19,200",170.8,3.0,1
+1471,Customer 471,2023-12-25,mumbai,prem,,"$20,300",162.4,8.0,no
+1165,Customer 165,"Jan 03, 2024",Bombay,prem,27,64900.0,172.2,10.0,no
+1412,Customer 412,2022-09-09,NYC,Basic,33,"$107,900",161.9,6.0,Y
+1456,Customer 456,14/05/2022,Lima,basic,43,14700.0,187.8,7.0,N
+1082,Customer 82,"May 25, 2022",NYC,BASIC,34,"$67,900",172.3,6.0,no
+1404,Customer 404,2023-03-26,Berlin,Basic,21,"$24,500",156.1,6.0,0
+1071,Customer 71,20/06/2022,Lima,Premium ,40,"$48,100",159.8,4.0,Y
+1468,Customer 468,13/06/2022,LIMA,basic,29,"$43,600",187.5,6.0,no
+1289,Customer 289,2023-03-03,Lima,Premium ,23,"$45,200",166.6,6.0,1
+1087,Customer 87,09/10/2022,berlin,Enterprise,37,59100.0,171.9,3.0,Y
+1064,Customer 64,05/01/2023,Lima,BASIC,46,79500.0,69.7,8.0,0
+1270,Customer 270,23/09/2022,Mumbai,BASIC,47,154800.0,166.7,5.0,0
+1093,Customer 93,"Dec 15, 2022",Berlin,Premium ,47,44000.0,154.5,,yes
+1554,Customer 554,2024-06-04,Mumbai,premium,35,40400.0,177.8,5.0,no
+1274,Customer 274,"Jan 12, 2023",mumbai,,33,79300.0,162.1,3.0,N
+1213,Customer 213,2023-02-09,Bombay,premium,30,24200.0,168.1,7.0,no
+1143,Customer 143,2023-01-03,LIMA,premium,37,71000.0,173.7,5.0,N
+1470,Customer 470,"Oct 27, 2023",lima ,basic,44,59500.0,183.2,6.0,0
+1553,  Customer 553 ,"Oct 14, 2022",unknown,BASIC,28,51800.0,72.0,1.0,no
+1153,Customer 153,"Sep 22, 2022",NYC,,43,44100.0,179.6,8.0,no
+1101,Customer 101,29/06/2022,Bombay,prem,42,"$48,500",66.5,4.0,no
+1201,Customer 201,2024-03-28,New York,Basic,39,28500.0,157.7,5.0,no
+1472,Customer 472,"Jan 24, 2023",Bombay,Enterprise,43,"$71,400",172.1,,no
+1410,Customer 410,2022-06-06,New York,prem,,57600.0,175.3,5.0,no
+1318,Customer 318,2024-04-24,new york,Premium ,50,44100.0,178.5,7.0,N
+1376,Customer 376,2023-10-25,lima ,basic,25,32600.0,169.5,4.0,Y
+1308,  Customer 308 ,12/10/2022,New York,,41,"$41,100",165.5,4.0,N
+1502,Customer 502,"May 16, 2024",Bombay,premium,54,45700.0,176.6,7.0,no
+1400,Customer 400,"Jun 17, 2024",NYC,prem,33,"$15,200",169.3,10.0,no
+1005,Customer 5,12/02/2024,New York,,35,"$81,100",182.5,6.0,Y
+1044,Customer 44,"Mar 03, 2022",LIMA,Premium ,,37200.0,162.4,3.0,N
+1113,Customer 113,"Feb 18, 2023",new york,Enterprise,41,"$30,300",164.1,3.0,no
+1390,Customer 390,04/11/2023,LIMA,Basic,30,"$49,700",169.9,5.0,no
+1220,Customer 220,2022-04-25,lima ,Enterprise,50,55700.0,173.9,14.0,no
+1140,  Customer 140 ,"Jun 03, 2024",unknown,basic,46,"$56,800",172.2,6.0,N
+1349,Customer 349,2022-05-29,New York,,36,30300.0,65.3,5.0,N
+1357,  Customer 357 ,13/03/2024,NYC,prem,41,46500.0,176.9,,no
+1210,  Customer 210 ,2022-08-24,Bombay,basic,?,66300.0,169.0,3.0,no
+1133,  Customer 133 ,"May 19, 2023",berlin,premium,38,"$88,900",168.6,4.0,yes
+1261,Customer 261,"Jun 03, 2022",Mumbai,Enterprise,58,104600.0,173.0,6.0,0
+1278,Customer 278,28/02/2022,New York,,38,"$80,400",173.0,5.0,no
+1386,Customer 386,02/03/2022,Berlin,Premium ,37,58100.0,167.7,7.0,Y
+1079,Customer 79,"Aug 26, 2023",mumbai,Basic,28,46300.0,171.5,6.0,0
+1531,Customer 531,"May 29, 2022",Bombay,basic,52,37600.0,167.3,4.0,N
+1411,Customer 411,"Jul 26, 2022",berlin,enterprise,35,55200.0,175.4,5.0,no
+1115,Customer 115,"May 27, 2023",berlin,prem,48,17300.0,175.3,6.0,0
+1512,Customer 512,2024-01-27,Mumbai,Premium ,35,20600.0,179.0,8.0,no
+1524,Customer 524,"Oct 14, 2022",new york,prem,45,36700.0,174.9,6.0,yes
+1373,Customer 373,03/12/2022,LIMA,basic,19,45600.0,165.3,6.0,0
+1206,Customer 206,19/11/2023,N/A,Premium ,48,37400.0,157.2,7.0,N
+1380,Customer 380,05/01/2022,mumbai,Basic,63,27400.0,174.4,6.0,yes
+1577,Customer 577,2023-04-17,berlin,premium,46,"$28,900",171.0,3.0,N
+1184,Customer 184,23/03/2023,Bombay,prem,45,23000.0,161.7,6.0,yes
+1548,Customer 548,"Apr 10, 2023",Mumbai,premium,35,37900.0,181.8,6.0,no
+1358,Customer 358,"Mar 23, 2022",Bombay,enterprise,44,96900.0,185.2,8.0,N
+1523,Customer 523,2024-01-13,Bombay,Enterprise,50,"$45,200",174.0,9.0,N
+1552,Customer 552,16/01/2024,LIMA,premium,15,"$32,500",178.4,5.0,N
+1346,Customer 346,"Jun 11, 2024",Bombay,enterprise,32,"$80,100",170.2,9.0,Y
+1339,Customer 339,07/05/2024,new york,,54,"$84,100",177.0,8.0,no
+1423,Customer 423,"Jun 08, 2023",NYC,prem,37,40500.0,185.0,6.0,no
+1242,Customer 242,"Mar 27, 2022",unknown,premium,25,68000.0,161.8,5.0,no
+1420,  Customer 420 ,2024-04-14,new york,prem,39,63200.0,156.4,3.0,no
+1149,Customer 149,2022-02-22,Bombay,Enterprise,41,"$124,200",164.4,6.0,yes
+1009,Customer 9,"Mar 26, 2022",Mumbai,Basic,25,"$130,600",191.5,9.0,0
+1293,Customer 293,"Oct 26, 2022",mumbai,BASIC,41,"$115,000",151.0,5.0,no
+1328,Customer 328,08/05/2022,New York,Basic,61,"$21,100",168.4,4.0,Y
+1045,Customer 45,2024-05-23,New York,premium,,"$28,000",172.5,1.0,no
+1576,Customer 576,2024-04-13,lima ,Premium ,,2500000.0,176.5,6.0,0
+1095,Customer 95,2022-09-17,new york,BASIC,30,16600.0,179.4,6.0,0
+1583,Customer 583,16/02/2022,Mumbai,Enterprise,25,199700.0,159.3,8.0,N
+1022,Customer 22,2022-06-14,Lima,BASIC,18,"$153,400",152.2,7.0,N
+1036,Customer 36,2024-02-12,mumbai,Basic,43,"$60,200",159.0,6.0,yes
+1048,Customer 48,"Sep 03, 2023",unknown,enterprise,32,57700.0,158.9,10.0,no
+1298,Customer 298,2022-09-14,lima ,,16,"$72,300",165.0,2.0,N
+1464,Customer 464,"Jan 06, 2022",new york,basic,49,"$38,100",69.7,7.0,Y
+1290,Customer 290,2023-12-28,NYC,BASIC,34,139800.0,152.7,9.0,no
+1415,Customer 415,"Sep 02, 2023",Lima,Premium ,58,86400.0,165.6,6.0,yes
+1313,Customer 313,"Sep 11, 2022",Bombay,Basic,29,27200.0,169.5,3.0,yes
+1421,Customer 421,2023-09-17,mumbai,Enterprise,39,54000.0,158.8,,N
+1145,Customer 145,08/02/2024,LIMA,enterprise,13,"$28,600",173.3,6.0,no
+1122,Customer 122,"Aug 12, 2023",Bombay,premium,36,12200.0,176.8,,no
+1547,Customer 547,"Jun 17, 2023",LIMA,premium,36,"$23,800",168.3,7.0,N
+1513,Customer 513,2024-01-05,New York,enterprise,31,54300.0,179.7,5.0,N
+1361,Customer 361,12/03/2024,Mumbai,premium,48,"$32,800",167.9,,yes
+1336,  Customer 336 ,2024-05-16,berlin,basic,31,43600.0,155.5,5.0,no
+1135,Customer 135,"Oct 01, 2022",LIMA,BASIC,27,37000.0,158.8,6.0,yes
+1532,  Customer 532 ,"May 21, 2022",Lima,Premium ,47,"$66,400",174.0,4.0,yes
+1315,  Customer 315 ,17/08/2023,LIMA,Premium ,34,35900.0,63.9,5.0,no
+1197,Customer 197,17/04/2022,Mumbai,prem,38,"$45,100",156.5,3.0,no
+1427,  Customer 427 ,2023-12-25,NYC,prem,38,51000.0,151.8,5.0,yes
+1257,Customer 257,2022-04-04,new york,Premium ,,100600.0,162.3,3.0,Y
+1139,Customer 139,"Jan 29, 2023",new york,premium,21,79500.0,174.9,7.0,0
+1367,Customer 367,2022-10-12,mumbai,premium,41,40800.0,173.8,2.0,0
+1597,Customer 597,"Dec 03, 2023",lima ,enterprise,37,"$30,000",188.5,6.0,yes
+1563,Customer 563,13/06/2022,mumbai,BASIC,57,76600.0,179.4,10.0,no
+1107,Customer 107,22/08/2023,Berlin,BASIC,33,16900.0,164.0,4.0,0
+1008,Customer 8,"Jul 01, 2022",Lima,prem,60,128900.0,169.5,7.0,1
+1097,Customer 97,07/09/2023,new york,premium,47,73000.0,160.0,4.0,N
+1023,Customer 23,14/04/2024,new york,basic,44,"$56,900",179.5,2.0,no
+1348,Customer 348,"Jun 12, 2022",Lima,basic,59,133800.0,153.0,4.0,N
+1509,Customer 509,2022-08-01,berlin,,,"$60,200",172.2,7.0,yes
+1593,Customer 593,"May 31, 2024",Lima,Premium ,25,"$101,800",171.7,8.0,no
+1021,  Customer 21 ,30/11/2022,Lima,prem,41,"$31,600",165.8,8.0,Y
+1482,Customer 482,"Aug 14, 2022",lima ,enterprise,43,56400.0,182.3,6.0,1
+1405,Customer 405,"Mar 27, 2023",LIMA,prem,150,24200.0,165.4,5.0,no
+1478,Customer 478,21/08/2023,Bombay,,54,88900.0,158.2,8.0,yes
+1491,Customer 491,20/02/2024,mumbai,Premium ,54,58800.0,175.5,9.0,no
+1046,Customer 46,06/02/2023,,prem,31,27100.0,169.1,4.0,yes
+1364,  Customer 364 ,"Apr 15, 2022",,premium,48,"$22,400",174.9,9.0,no
+1296,Customer 296,04/02/2024,Lima,BASIC,39,51900.0,185.7,3.0,1
+1049,  Customer 49 ,"Dec 02, 2023",,BASIC,33,33000.0,173.2,5.0,Y
+1487,Customer 487,"Apr 23, 2023",Berlin,premium,31,61400.0,64.5,6.0,no
+1224,  Customer 224 ,12/10/2023,Bombay,BASIC,26,"$39,800",69.9,8.0,yes
+1219,Customer 219,"Mar 23, 2024",new york,Basic,49,"$69,400",179.9,7.0,N
+1510,Customer 510,14/06/2024,Lima,enterprise,21,38800.0,183.0,9.0,no
+1232,Customer 232,18/01/2022,NYC,Enterprise,40,79700.0,158.1,4.0,no
+1201,Customer 201,2024-03-28,New York,Basic,39,28500.0,157.7,5.0,no
+1473,Customer 473,25/02/2023,NYC,,24,52300.0,161.5,4.0,yes
+1063,  Customer 63 ,2024-05-20,Berlin,prem,22,"$22,500",174.7,5.0,no
+1245,  Customer 245 ,2022-03-17,Mumbai,enterprise,,"$30,800",66.8,4.0,0
+1442,Customer 442,29/04/2022,Bombay,Basic,45,"$59,100",173.4,9.0,0
+1544,Customer 544,2024-01-18,berlin,Enterprise,38,46800.0,62.1,5.0,N
+1000,  Customer 0 ,22/03/2022,N/A,basic,52,41900.0,158.1,7.0,no
+1187,Customer 187,"Dec 09, 2022",Lima,Basic,0,"$22,000",69.2,2.0,0
+1406,  Customer 406 ,"Jan 26, 2023",lima ,,46,"$44,900",160.3,5.0,1
+1148,Customer 148,2024-01-10,,prem,54,"$60,200",170.5,5.0,no
+1026,Customer 26,29/12/2022,berlin,basic,31,44700.0,191.2,,N
+1461,Customer 461,"May 07, 2022",LIMA,basic,47,88000.0,63.2,10.0,no
+1059,Customer 59,2023-09-07,Lima,BASIC,36,50700.0,69.6,4.0,N
+1326,Customer 326,01/08/2022,new york,basic,55,76700.0,165.4,3.0,N
+1424,Customer 424,"Jan 11, 2023",Bombay,enterprise,30,56600.0,67.9,9.0,N
+1477,Customer 477,2022-01-17,Berlin,basic,23,120500.0,69.2,6.0,no
+1043,Customer 43,16/11/2022,Lima,,33,"$65,100",157.8,7.0,no
+1528,Customer 528,03/04/2024,NYC,premium,46,29500.0,164.4,11.0,yes
+1483,  Customer 483 ,19/12/2023,Bombay,prem,36,34600.0,152.9,7.0,no
+1218,Customer 218,07/02/2023,new york,basic,37,"$36,700",167.2,6.0,no
+1496,Customer 496,"Apr 18, 2022",berlin,,20,"$37,500",165.5,6.0,no
+1573,Customer 573,2022-02-14,New York,basic,40,"$50,800",173.7,5.0,N
+1485,Customer 485,"Jul 29, 2022",Bombay,BASIC,33,22000.0,178.4,7.0,N
+1125,Customer 125,2023-05-24,Berlin,,27,73300.0,162.7,,N
+1562,Customer 562,"Mar 20, 2023",lima ,,38,"$38,300",184.4,7.0,0
+1061,Customer 61,"Nov 02, 2023",mumbai,Basic,44,"$19,900",166.6,6.0,no
+1081,Customer 81,2023-01-29,new york,Premium ,51,"$68,300",170.0,3.0,N
+1324,Customer 324,2024-05-27,mumbai,enterprise,39,"$50,700",160.9,10.0,0
+1385,  Customer 385 ,21/04/2022,Lima,BASIC,27,43900.0,171.1,10.0,no
+1451,Customer 451,12/04/2024,berlin,,38,79800.0,66.5,3.0,yes
+1056,  Customer 56 ,"May 07, 2023",New York,enterprise,17,113800.0,181.3,7.0,no
+1019,Customer 19,2023-02-10,Mumbai,premium,32,35000.0,156.1,4.0,N
+1595,  Customer 595 ,23/12/2023,Bombay,,37,51400.0,158.0,6.0,yes
+1086,Customer 86,29/03/2022,berlin,Basic,34,40600.0,177.7,7.0,no
+1316,Customer 316,20/10/2023,lima ,enterprise,38,95100.0,175.0,6.0,N
+1034,Customer 34,2024-03-10,,premium,41,47900.0,173.4,,no
+1138,Customer 138,"Nov 09, 2022",berlin,Premium ,25,55000.0,176.2,6.0,N
+1498,Customer 498,2024-04-13,mumbai,Basic,40,35600.0,178.8,6.0,Y
+1538,Customer 538,"May 02, 2023",mumbai,premium,39,86100.0,167.2,8.0,1
+1555,Customer 555,31/03/2023,LIMA,enterprise,30,102600.0,64.3,2.0,no
+1096,Customer 96,"Aug 04, 2022",mumbai,enterprise,-1,"$17,900",165.8,5.0,no
+1083,Customer 83,"Jan 20, 2024",Berlin,BASIC,19,66000.0,173.9,11.0,N
+1446,Customer 446,2022-10-10,Bombay,Enterprise,45,"$52,700",155.6,4.0,0
+1474,Customer 474,25/07/2023,N/A,Basic,36,"$161,700",168.0,5.0,0
+1366,Customer 366,27/02/2023,berlin,BASIC,51,"$36,600",68.3,5.0,no
+1580,Customer 580,25/03/2022,Lima,Enterprise,54,26700.0,182.4,7.0,no
+1401,Customer 401,"Dec 01, 2023",Bombay,premium,22,"$78,500",173.8,5.0,no
+1392,  Customer 392 ,2022-11-27,New York,basic,38,16200.0,175.6,3.0,no
+1581,  Customer 581 ,"Jan 21, 2024",mumbai,BASIC,11,"$74,700",61.3,6.0,no
+1271,Customer 271,2022-01-21,Lima,Enterprise,30,"$51,300",173.1,5.0,no
+1506,Customer 506,2023-04-23,lima ,prem,39,"$24,600",159.1,5.0,N
+1268,Customer 268,06/07/2023,Bombay,premium,0,102100.0,157.4,10.0,no
+1434,  Customer 434 ,2023-01-26,unknown,prem,54,65400.0,171.2,6.0,0
+1561,Customer 561,09/02/2022,Mumbai,enterprise,37,57300.0,164.2,4.0,no
+1207,Customer 207,2024-05-22,NYC,premium,38,61800.0,162.6,,N
+1319,Customer 319,23/11/2023,berlin,enterprise,31,62900.0,178.8,,no
+1132,Customer 132,"Mar 23, 2022",new york,basic,?,23300.0,164.0,11.0,N
+1050,Customer 50,15/11/2023,LIMA,basic,53,49700.0,179.8,2.0,no
+1238,  Customer 238 ,2022-10-05,berlin,,,"$53,700",155.0,9.0,no
+1564,Customer 564,11/03/2024,Mumbai,BASIC,12,33300.0,69.5,10.0,0
+1450,Customer 450,14/05/2024,Berlin,Enterprise,38,"$20,300",158.5,7.0,yes
+1031,Customer 31,2022-07-24,LIMA,BASIC,,15900.0,164.9,4.0,N
+1121,Customer 121,"Aug 25, 2023",new york,Enterprise,28,"$90,800",170.4,5.0,yes
+1211,Customer 211,"Oct 08, 2023",new york,basic,,44700.0,64.0,1.0,0
+1351,Customer 351,2022-02-10,berlin,premium,35,"$21,100",167.5,8.0,0
+1454,Customer 454,2023-06-22,new york,Enterprise,,23500.0,167.4,6.0,N
+1302,Customer 302,2022-01-09,New York,prem,38,57800.0,157.8,5.0,N
+1088,Customer 88,23/11/2023,New York,Premium ,19,35900.0,155.9,5.0,yes
+1325,Customer 325,"Jul 27, 2022",New York,prem,36,"$64,500",66.5,7.0,yes
+1323,Customer 323,2024-04-04,Bombay,prem,42,52400.0,176.3,,N
+1255,Customer 255,"May 11, 2022",NYC,Premium ,26,58700.0,159.6,3.0,no
+1570,Customer 570,03/05/2024,lima ,basic,34,"$115,300",178.3,4.0,yes
+1545,Customer 545,18/02/2022,LIMA,enterprise,30,48300.0,169.0,6.0,yes
+1550,Customer 550,24/12/2023,Berlin,Premium ,37,24700.0,64.3,3.0,no
+1359,Customer 359,05/11/2023,unknown,premium,25,"$43,600",60.6,9.0,N
+1051,Customer 51,25/06/2022,new york,Basic,27,65200.0,174.4,3.0,no
+1102,Customer 102,2023-12-26,lima ,Enterprise,36,"$133,500",159.5,6.0,no
+1195,Customer 195,2022-03-20,Bombay,BASIC,41,"$11,700",173.4,7.0,no
+1124,Customer 124,"Feb 09, 2024",LIMA,Basic,35,27200.0,158.4,,no
+1404,Customer 404,2023-03-26,Berlin,Basic,21,"$24,500",156.1,6.0,0
+1287,  Customer 287 ,2023-05-30,New York,enterprise,?,15800.0,72.0,6.0,N
+1047,Customer 47,14/03/2024,lima ,basic,43,51200.0,175.1,3.0,no
+1587,Customer 587,31/03/2022,NYC,BASIC,27,115000.0,177.1,8.0,no
+1548,Customer 548,"Apr 10, 2023",Mumbai,premium,35,37900.0,181.8,6.0,no
+1433,Customer 433,2022-04-28,Lima,enterprise,24,33500.0,178.5,8.0,N
+1263,Customer 263,"Apr 12, 2024",Lima,BASIC,59,36400.0,157.9,5.0,N
+1360,Customer 360,2024-02-01,Lima,basic,37,"$20,100",156.8,4.0,no
+1075,Customer 75,"Mar 05, 2023",Mumbai,premium,56,51500.0,167.2,5.0,0
+1466,Customer 466,"May 30, 2022",new york,enterprise,39,64100.0,155.8,6.0,no
+1299,Customer 299,20/01/2022,NYC,BASIC,38,32700.0,181.7,2.0,Y
+1534,Customer 534,04/06/2023,mumbai,premium,35,82800.0,170.1,7.0,N
+1584,Customer 584,30/12/2022,Bombay,prem,34,"$39,100",74.1,5.0,N
+1493,Customer 493,27/06/2023,Mumbai,Basic,?,42600.0,168.0,,yes
+1527,Customer 527,10/05/2022,N/A,prem,26,"$46,300",73.6,2.0,N
+1168,  Customer 168 ,2022-10-28,lima ,premium,48,"$127,600",173.8,,yes

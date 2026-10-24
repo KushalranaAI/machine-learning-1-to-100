@@ -15,6 +15,7 @@ downloads/
 eggs/
 .eggs/
 lib/
+!web/lib/
 lib64/
 parts/
 sdist/
@@ -175,3 +176,6 @@ cython_debug/
 .pypirc
 
 .txt
+outputs/
+cpp/build/
+projects/*/data/
