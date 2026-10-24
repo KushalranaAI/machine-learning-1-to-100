@@ -22,7 +22,7 @@ pros:
   - Works without labels
   - Isolation Forest scales well and needs no distance metric
 cons:
-  - "Anomalous" ≠ "interesting" - many flags are just rare-but-normal
+  - "\"Anomalous\" ≠ \"interesting\" - many flags are just rare-but-normal"
   - Hard to evaluate without (some) labels; threshold choice is a business decision
 workflow: |
   flowchart LR

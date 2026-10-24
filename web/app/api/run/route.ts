@@ -21,6 +21,13 @@ export async function POST(req: Request) {
   if (!LOCAL_HOSTS.test(req.headers.get("host") ?? "")) {
     return new Response("Scripts can only be run from localhost.", { status: 403 });
   }
+  // Block other websites open in the same browser: they can't send a cross-origin JSON POST without a CORS preflight,
+  // and their Origin header gives them away.
+  const origin = req.headers.get("origin");
+  const originHost = origin ? (URL.canParse(origin) ? new URL(origin).host : "invalid") : null;
+  if ((originHost !== null && !LOCAL_HOSTS.test(originHost)) || !req.headers.get("content-type")?.includes("application/json")) {
+    return new Response("Cross-origin requests are not allowed.", { status: 403 });
+  }
   const { script, args = [] } = (await req.json()) as { script: string; args?: string[] };
   const full = path.resolve(ROOT, script ?? "");
   const allowed = ALLOWED_DIRS.some((d) => safeInside(d, full)) && full.endsWith(".py") && fs.existsSync(full);

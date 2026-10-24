@@ -179,7 +179,7 @@ export function safeInside(base: string, target: string): boolean {
 /** "mlscratch/linear_model.py:Ridge" → the source of class Ridge; "cpp/src/knn.cpp" → the whole file. */
 export function getCode(spec: string): CodeSnippet | null {
   const [file, symbol = null] = spec.split(":");
-  const full = path.join(ROOT, file);
+  const full = path.join(/*turbopackIgnore: true*/ ROOT, file);
   if (!safeInside(ROOT, full) || !fs.existsSync(full)) return null;
   const source = fs.readFileSync(full, "utf8");
   const language = LANG[path.extname(file)] ?? "text";

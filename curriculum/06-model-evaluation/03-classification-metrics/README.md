@@ -4,7 +4,7 @@ order: 3
 summary: Confusion matrix, accuracy, precision, recall, F1, ROC curve and AUC, precision-recall curve, log-loss, calibration, and multi-class averaging.
 level: beginner
 minutes: 45
-why: "95% accurate" means nothing if 95% of emails are not spam. The confusion matrix and the metrics built on it tell you what kinds of mistakes a model makes - and the threshold lets you choose which mistakes you can afford.
+why: "\"95% accurate\" means nothing if 95% of emails are not spam. The confusion matrix and the metrics built on it tell you what kinds of mistakes a model makes - and the threshold lets you choose which mistakes you can afford."
 background: Precision and recall come from information retrieval (1950s-60s). ROC analysis was developed for radar signal detection in WWII and adopted by medicine and then ML.
 use_cases:
   - Spam, fraud and disease detection (rare positives)

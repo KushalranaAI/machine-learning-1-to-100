@@ -1,5 +1,5 @@
 ---
-title: XGBoost: Second-Order Boosting
+title: "XGBoost: Second-Order Boosting"
 order: 4
 summary: The regularised objective, the second-order Taylor expansion, optimal leaf weights w* = −G/(H+λ), the split-gain formula with γ, and the engineering that makes XGBoost/LightGBM fast.
 level: advanced

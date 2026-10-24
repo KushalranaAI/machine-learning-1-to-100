@@ -4,11 +4,11 @@ order: 6
 summary: Market-basket analysis - support, confidence and lift, the Apriori principle for pruning, generating rules, and interpreting them.
 level: beginner
 minutes: 30
-why: "Customers who buy X also buy Y" drives product placement, recommendations and bundling. Association rules find such patterns in transaction data without any labels.
+why: "\"Customers who buy X also buy Y\" drives product placement, recommendations and bundling. Association rules find such patterns in transaction data without any labels."
 background: Agrawal, Imieliński and Swami introduced association rule mining (1993) and Agrawal & Srikant the Apriori algorithm (1994), analysing supermarket baskets. FP-Growth (Han et al., 2000) avoids candidate generation.
 use_cases:
   - Market-basket analysis and store layout
-  - "Frequently bought together" recommendations
+  - "\"Frequently bought together\" recommendations"
   - Web usage mining, medical co-occurrence of symptoms
 where_used:
   - 03-customer-segmentation

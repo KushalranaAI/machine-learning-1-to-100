@@ -16,3 +16,4 @@ pytest>=8.0
 
 # Optional: Kaggle CLI for downloading project datasets with your API token
 kaggle>=1.6
+pyyaml>=6.0

@@ -1,5 +1,5 @@
 ---
-title: Text Features: Bag of Words & TF-IDF
+title: "Text Features: Bag of Words & TF-IDF"
 order: 5
 summary: Turn documents into vectors - tokenisation, stop words, n-grams, count vectors and TF-IDF - built from scratch and used for spam detection.
 level: intermediate
