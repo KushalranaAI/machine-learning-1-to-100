@@ -61,7 +61,7 @@ class CountVectorizer(BaseEstimator):
         return self.fit(docs).transform(docs)
 
     def get_feature_names_out(self):
-        return np.array(sorted(self.vocabulary_, key=self.vocabulary_.get))
+        return np.array(sorted(self.vocabulary_, key=self.vocabulary_.get), dtype=object)
 
 
 class TfidfVectorizer(CountVectorizer):
